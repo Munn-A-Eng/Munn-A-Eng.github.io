@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Adam Munn engineering portfolio">
+  <title>CAD & Design | Adam Munn</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>try{if(sessionStorage.getItem('headshotFlip'))document.documentElement.classList.add('flip-pending');}catch(e){}</script>
+  <script>(function(){try{var p=JSON.parse(localStorage.getItem('portfolio-a11y-prefs')||'null');var h=document.documentElement;var d={theme:'light',contrast:'normal',textSize:'normal',motion:'auto'};if(p&&typeof p==='object'){for(var k in d){if(p[k])d[k]=p[k];}}h.setAttribute('data-theme',d.theme);h.setAttribute('data-contrast',d.contrast);h.setAttribute('data-text-size',d.textSize);h.setAttribute('data-motion',d.motion);}catch(e){}})();</script>
+  <script src="scripts/site-interactions.js?v=4" defer></script>
+</head>
+
+<body>
+	<!-- Site Header -->
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">Adam Munn, BEng, EngTech (MIMechE)</a>
+
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <div class="nav-dropdown">
+        <a href="experience.html" class="nav-dropdown-link">
+          Experience <span class="nav-caret">▾</span>
+        </a>
+        <div class="nav-submenu">
+          <a href="experience.html#engineering-experience">Engineering Experience</a>
+          <a href="experience.html#additional-employment">Additional Employment</a>
+          <a href="experience.html#qualifications">Qualifications and Certifications</a>
+          <a href="experience.html#awards">Awards and Recognition</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="cad.html" class="nav-dropdown-link active">
+          CAD <span class="nav-caret">▾</span>
+        </a>
+        <div class="nav-submenu">
+          <a href="cad.html#hevasure-aquila-2">Hevasure Aquila 2</a>
+          <a href="cad.html#throttle-valve-assembly">Throttle Valve Assembly</a>
+          <a href="cad.html#reverse-engineering-mould-design-cam">Reverse Engineering, Mould Design and CAM</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="manufacturing-systems.html" class="nav-dropdown-link">
+          Manufacturing <span class="nav-caret">▾</span>
+        </a>
+        <div class="nav-submenu">
+          <a href="manufacturing-systems.html#hydraulic-disc-brake-caliper-digital-twin">Hydraulic Disc Brake Caliper Digital Twin</a>
+          <a href="manufacturing-systems.html#axle-optimisation">Axle Optimisation</a>
+          <a href="manufacturing-systems.html#ipv-vision-system-upgrades">IPV Vision-System Upgrades</a>
+          <a href="manufacturing-systems.html#output-transfer-gear-line-optimisation">Output Transfer Gear Line Optimisation</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="robotics-automation.html" class="nav-dropdown-link">
+          Robotics &amp; Automation <span class="nav-caret">▾</span>
+        </a>
+        <div class="nav-submenu">
+          <a href="robotics-automation.html#industrial-cobot-vision-support">Industrial COBOT and Vision-System Support</a>
+          <a href="robotics-automation.html#rrt-path-planning">RRT Path-Planning Simulation</a>
+          <a href="robotics-automation.html#portfolio-website-development">Portfolio Website Development</a>
+          <a href="robotics-automation.html#live-data-integration">Live Data Integration</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="dissertation.html" class="nav-dropdown-link">
+          Dissertation <span class="nav-caret">▾</span>
+        </a>
+        <div class="nav-submenu">
+          <a href="dissertation.html#project-overview">Project Overview</a>
+          <a href="dissertation.html#abstract">Abstract</a>
+          <a href="dissertation.html#research-approach">Research Approach</a>
+          <a href="dissertation.html#selected-findings">Selected Findings</a>
+          <a href="dissertation.html#chapter-summaries">Chapter Summaries</a>
+          <a href="dissertation.html#submitted-poster">Submitted Poster</a>
+          <a href="dissertation.html#supporting-documents">Supporting Documents</a>
+        </div>
+      </div>
+    </nav>
+
+    <img
+      class="header-headshot"
+      src="./images/profile/adam-munn-headshot.png"
+      alt="Headshot of Adam Munn"
+    >
+  </div>
+</header>
+	<!-- Contact Strip -->
+  <div class="contact-strip">
+    <span>Email: <a href="mailto:Adammunn71@gmail.com">Adammunn71@gmail.com</a></span>
+    <span>LinkedIn: <a href="https://www.linkedin.com/in/adammunnuop/" target="_blank" rel="noopener noreferrer">Adam Munn</a></span>
+    <button type="button" class="search-open contact-search" aria-label="Search this site (press Ctrl+K)">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+      <span>Search</span>
+      <kbd class="contact-search-kbd">Ctrl K</kbd>
+    </button>
+  </div>
+  <main>
+	<!-- Page Introduction -->
+    <section class="cad-intro">
+  <h1>CAD &amp; Design</h1>
+
+  <p class="eyebrow">Computer Aided Design and Engineering</p>
+
+  <p class="lead">
+    Selected industrial and academic CAD work completed using Creo Parametric.
+    The page includes approved visual evidence, reports and controlled publication notes.
+  </p>
+</section>
+	<!-- Industrial CAD Project: Hevasure Aquila 2 -->
+    <section id="hevasure-aquila-2" class="cad-project">
+      <h2>Industrial CAD Project: Hevasure Aquila 2</h2>
+
+      <article class="card project-summary-card">
+        <p>
+          Industrial CAD project completed for Hevasure Ltd to create a 3D model of the
+          Aquila 2 remote monitoring station. The model was produced remotely from supplied
+          dimensions, drawings and product information using Creo Parametric 9.0.
+        </p>
+
+        <p>
+          The project demonstrates product visualisation and CAD support where access to
+          the physical product is limited. The published evidence is limited to approved
+          visual material suitable for portfolio demonstration.
+        </p>
+
+        <div class="tag-list">
+          <span class="tag">Industrial CAD</span>
+          <span class="tag">Creo Parametric 9.0</span>
+          <span class="tag">Remote modelling</span>
+          <span class="tag">Product visualisation</span>
+          <span class="tag">Controlled disclosure</span>
+        </div>
+      </article>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Project context</h3>
+
+          <p>
+            The model was created from reference material provided by Hevasure rather than
+            from direct physical measurement. The work was completed remotely and focused
+            on producing a clean visual CAD representation of the product.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Disclosure note</h3>
+
+          <p>
+            The screenshot and video loop are published with permission. Individual
+            employee names, email addresses, internal drawings, dimensions and native CAD
+            files are not included.
+          </p>
+        </article>
+      </div>
+<br>
+      <h3>Visual evidence</h3>
+
+      <div class="industrial-media-grid">
+        <figure class="industrial-media-item">
+          <img
+            src="./images/cad/industrial/hevasure-aquila-2-preview.png"
+            alt="Approved screenshot of the Hevasure Aquila 2 CAD model"
+            loading="lazy"
+          >
+
+          <figcaption>
+            Approved screenshot of the Hevasure Aquila 2 CAD model. Shown with permission;
+            employee names, contact details, internal dimensions and native CAD files are excluded.
+          </figcaption>
+        </figure>
+
+        <figure class="industrial-media-item">
+          <video
+            src="./videos/cad/industrial/hevasure-aquila-2-loop.mp4"
+            poster="./images/cad/industrial/hevasure-aquila-2-preview.png"
+            autoplay
+            muted
+            loop
+            playsinline
+            controls
+          >
+            Your browser does not support the video tag.
+          </video>
+
+          <figcaption>
+            Approved video loop of the Hevasure Aquila 2 CAD model. Published as
+            non-confidential visual evidence only.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+	<!-- Coursework 1: Throttle Valve Assembly -->
+    <section id="throttle-valve-assembly" class="cad-project">
+      <h2>Final year CAD project: Throttle Valve Assembly</h2>
+
+      <article class="card project-summary-card">
+        <p>
+          Creo assembly-design coursework for an internal-combustion engine throttle valve.
+          The work included component modelling, standard parts, assembly development,
+          technical drawings, material selection and FEA-led design improvement.
+        </p>
+
+        <div class="tag-list">
+          <span class="tag">Creo</span>
+          <span class="tag">3D modelling</span>
+          <span class="tag">Assembly design</span>
+          <span class="tag">FEA</span>
+          <span class="tag">BS8888</span>
+        </div>
+      </article>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Engineering work</h3>
+
+          <p>
+            The design considered clearances, standard machine elements, operating
+            temperature, material selection and pressure-related loading. Creo Structure
+            was used to review valve-body behaviour and support a mass-reduction update
+            while maintaining a minimum safety factor of 2.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Report</h3>
+
+          <p>
+            The report records the design process, assembly development, material
+            selection, FEA results and technical drawings.
+          </p>
+
+          <div class="actions">
+            <a
+              class="button"
+              href="documents/cad/coursework-1-throttle-valve-report.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Coursework 1 report
+            </a>
+          </div>
+        </article>
+      </div>
+<br>
+      <h3>Visual evidence</h3>
+
+      <div class="evidence-grid">
+        <figure class="evidence-item">
+          <img
+            src="./images/cad/coursework-1/coursework-1-throttle-assembly.png"
+            alt="Isometric view of the Creo throttle valve assembly"
+            loading="lazy"
+          >
+
+          <figcaption>Throttle valve assembly model</figcaption>
+        </figure>
+
+        <figure class="evidence-item">
+          <img
+            src="./images/cad/coursework-1/coursework-1-throttle-section-view.png"
+            alt="Section view showing the internal arrangement of the throttle valve assembly"
+            loading="lazy"
+          >
+
+          <figcaption>Section view of the internal assembly</figcaption>
+        </figure>
+
+        <figure class="evidence-item">
+          <img
+            src="./images/cad/coursework-1/coursework-1-fea-results.png"
+            alt="Finite element analysis results for the throttle valve body"
+            loading="lazy"
+          >
+
+          <figcaption>Valve-body FEA results</figcaption>
+        </figure>
+      </div>
+    </section>
+
+	<!-- Coursework 2: Reverse Engineering, Mould Design and CAM -->
+    <section id="reverse-engineering-mould-design-cam" class="cad-project">
+      <h2>Final year CAD project (extended): Reverse Engineering, Mould Design and CAM</h2>
+
+      <article class="card project-summary-card">
+        <p>
+          Creo coursework covering point-cloud reconstruction, die-casting modification,
+          mould-tool development and CAM machining simulation for an aluminium casting.
+        </p>
+
+        <div class="tag-list">
+          <span class="tag">Creo</span>
+          <span class="tag">Reverse engineering</span>
+          <span class="tag">Mould design</span>
+          <span class="tag">CAM</span>
+          <span class="tag">G-code</span>
+        </div>
+      </article>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Manufacturing work</h3>
+
+          <p>
+            The project considered parting surfaces, shrinkage, draft angles, mould
+            cavities, test-shot evaluation, process planning, cutting parameters and
+            machining-time optimisation.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Report</h3>
+
+          <p>
+            The report records the reverse-engineering process, mould design, machining
+            strategy, CAM simulation and final manufacturing outputs.
+          </p>
+
+          <div class="actions">
+            <a
+              class="button"
+              href="documents/cad/coursework-2-cadcam-report.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Coursework 2 report
+            </a>
+          </div>
+        </article>
+      </div>
+<br>
+      <h3>Visual evidence</h3>
+
+      <div class="evidence-grid">
+        <figure class="evidence-item">
+          <img
+            src="./images/cad/coursework-2/coursework-2-reconstructed-model.png"
+            alt="Creo solid model reconstructed from a supplied point cloud"
+            loading="lazy"
+          >
+
+          <figcaption>Reconstructed CAD model</figcaption>
+        </figure>
+
+        <figure class="evidence-item">
+          <img
+            src="./images/cad/coursework-2/coursework-2-mould-design.png"
+            alt="Mould tool design created in Creo"
+            loading="lazy"
+          >
+
+          <figcaption>Mould-tool design</figcaption>
+        </figure>
+
+        <figure class="evidence-item">
+          <img
+            src="./images/cad/coursework-2/coursework-2-cam-simulation.png"
+            alt="CAM machining simulation completed in Creo"
+            loading="lazy"
+          >
+
+          <figcaption>CAM machining simulation</figcaption>
+        </figure>
+      </div>
+    </section>
+	
+	<!-- Publication Notes -->
+    <section>
+      <h2>Publication Notes</h2>
+
+      <div class="callout">
+        CAD evidence is published selectively. Native Creo files, internal drawings,
+        dimensions and restricted working files remain offline unless publication is appropriate.
+      </div>
+    </section>
+  </main>
+
+	<!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <p>Adam Munn: Mechanical and Manufacturing Engineering Portfolio</p>
+    </div>
+  </footer>
+  <script src="scripts/search.js" defer></script>
+  <script src="scripts/accessibility.js" defer></script>
+</body>
+</html>

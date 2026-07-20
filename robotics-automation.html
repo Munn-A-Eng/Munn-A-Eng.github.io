@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Adam Munn robotics, automation and engineering computation portfolio">
+  <title>Robotics & Automation | Adam Munn</title>
+  <link rel="stylesheet" href="assets/styles.css"><script>try{if(sessionStorage.getItem('headshotFlip'))document.documentElement.classList.add('flip-pending');}catch(e){}</script>
+  <script>(function(){try{var p=JSON.parse(localStorage.getItem('portfolio-a11y-prefs')||'null');var h=document.documentElement;var d={theme:'light',contrast:'normal',textSize:'normal',motion:'auto'};if(p&&typeof p==='object'){for(var k in d){if(p[k])d[k]=p[k];}}h.setAttribute('data-theme',d.theme);h.setAttribute('data-contrast',d.contrast);h.setAttribute('data-text-size',d.textSize);h.setAttribute('data-motion',d.motion);}catch(e){}})();</script>
+  <script src="scripts/site-interactions.js?v=4" defer></script>
+</head>
+
+<body>
+	<!-- Site header -->
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">Adam Munn, BEng, EngTech (MIMechE)</a>
+
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <div class="nav-dropdown">
+        <a href="experience.html" class="nav-dropdown-link">
+          Experience <span class="nav-caret">▾</span>
+        </a>
+        <div class="nav-submenu">
+          <a href="experience.html#engineering-experience">Engineering Experience</a>
+          <a href="experience.html#additional-employment">Additional Employment</a>
+          <a href="experience.html#qualifications">Qualifications and Certifications</a>
+          <a href="experience.html#awards">Awards and Recognition</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="cad.html" class="nav-dropdown-link">
+          CAD <span class="nav-caret">▾</span>
+        </a>
+        <div class="nav-submenu">
+          <a href="cad.html#hevasure-aquila-2">Hevasure Aquila 2</a>
+          <a href="cad.html#throttle-valve-assembly">Throttle Valve Assembly</a>
+          <a href="cad.html#reverse-engineering-mould-design-cam">Reverse Engineering, Mould Design and CAM</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="manufacturing-systems.html" class="nav-dropdown-link">
+          Manufacturing <span class="nav-caret">▾</span>
+        </a>
+        <div class="nav-submenu">
+          <a href="manufacturing-systems.html#hydraulic-disc-brake-caliper-digital-twin">Hydraulic Disc Brake Caliper Digital Twin</a>
+          <a href="manufacturing-systems.html#axle-optimisation">Axle Optimisation</a>
+          <a href="manufacturing-systems.html#ipv-vision-system-upgrades">IPV Vision-System Upgrades</a>
+          <a href="manufacturing-systems.html#output-transfer-gear-line-optimisation">Output Transfer Gear Line Optimisation</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="robotics-automation.html" class="nav-dropdown-link active">
+          Robotics &amp; Automation <span class="nav-caret">▾</span>
+        </a>
+        <div class="nav-submenu">
+          <a href="robotics-automation.html#industrial-cobot-vision-support">Industrial COBOT and Vision-System Support</a>
+          <a href="robotics-automation.html#rrt-path-planning">RRT Path-Planning Simulation</a>
+          <a href="robotics-automation.html#portfolio-website-development">Portfolio Website Development</a>
+          <a href="robotics-automation.html#live-data-integration">Live Data Integration</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="dissertation.html" class="nav-dropdown-link">
+          Dissertation <span class="nav-caret">▾</span>
+        </a>
+        <div class="nav-submenu">
+          <a href="dissertation.html#project-overview">Project Overview</a>
+          <a href="dissertation.html#abstract">Abstract</a>
+          <a href="dissertation.html#research-approach">Research Approach</a>
+          <a href="dissertation.html#selected-findings">Selected Findings</a>
+          <a href="dissertation.html#chapter-summaries">Chapter Summaries</a>
+          <a href="dissertation.html#submitted-poster">Submitted Poster</a>
+          <a href="dissertation.html#supporting-documents">Supporting Documents</a>
+        </div>
+      </div>
+    </nav>
+
+    <img
+      class="header-headshot"
+      src="./images/profile/adam-munn-headshot.png"
+      alt="Headshot of Adam Munn"
+    >
+  </div>
+</header>
+  <!-- Contact Strip -->
+  <div class="contact-strip">
+    <span>Email: <a href="mailto:Adammunn71@gmail.com">Adammunn71@gmail.com</a></span>
+    <span>LinkedIn: <a href="https://www.linkedin.com/in/adammunnuop/" target="_blank" rel="noopener noreferrer">Adam Munn</a></span>
+    <button type="button" class="search-open contact-search" aria-label="Search this site (press Ctrl+K)">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+      <span>Search</span>
+      <kbd class="contact-search-kbd">Ctrl K</kbd>
+    </button>
+  </div>
+  
+  <main>
+    <!-- Page introduction -->
+    <section class="page-intro">
+      <h1>Robotics, Automation &amp; Engineering Computation</h1>
+      <p class="eyebrow">Robotics, automation, MATLAB and practical coding</p>
+      <p class="lead">
+        Selected work covering industrial automation support, COBOT and vision-system
+        activity, MATLAB robotics simulation, and static website development.
+      </p>
+    </section>
+
+    <!-- Industrial COBOT and vision-system support -->
+    <section id="industrial-cobot-vision-support" class="automation-project">
+      <h2>Industrial COBOT and Vision-System Support</h2>
+
+      <article class="card project-summary-card">
+        <p>
+          Provided industrial automation support during my placement year at Caterpillar, covering COBOT
+          and vision-system activity in a live manufacturing environment. The work
+          focused on production support, fault investigation, validation activity
+          and inspection reliability for automated systems.
+        </p>
+        <p>
+          Published details are limited to tools, techniques and transferable
+          engineering work. Site-specific architecture, layouts, images, production
+          data, equipment locations and internal documentation are excluded.
+        </p>
+        <div class="tag-list">
+          <span class="tag">COBOT support</span>
+          <span class="tag">Vision systems</span>
+          <span class="tag">Manufacturing automation</span>
+          <span class="tag">Troubleshooting</span>
+          <span class="tag">RCCA</span>
+          <span class="tag">Validation checks</span>
+          <span class="tag">Controlled disclosure</span>
+        </div>
+      </article>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Role and contribution</h3>
+          <p>
+            Work included support for automated inspection systems, COBOT-related
+            production issues, fault investigation, issue logging, root-cause and
+            corrective-action activity, and coordination with internal and external
+            stakeholders.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Tools and techniques</h3>
+          <ul>
+            <li>COBOT operational support and path-change awareness</li>
+            <li>Vision-system troubleshooting and inspection-confidence improvement</li>
+            <li>Deep-learning inspection model support</li>
+            <li>Regression checks and validation planning</li>
+            <li>Start-of-shift checks and production-readiness support</li>
+            <li>Root-cause corrective action and issue tracking</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Engineering focus</h3>
+          <p>
+            The work sat at the interface between manufacturing engineering, automation,
+            quality and technical support. The main objective was to improve confidence
+            in automated systems while reducing avoidable production disruption.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Publication boundary</h3>
+          <p>
+            No site-specific images, system architecture, layouts, line details,
+            equipment locations, production rates or internal documents are published.
+            Any future images will be self-made diagrams or public/licensed generic
+            imagery only.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- RRT path-planning simulation -->
+    <section id="rrt-path-planning" class="automation-project">
+      <h2>RRT Path-Planning Simulation in MATLAB</h2>
+
+      <article class="card project-summary-card">
+        <p>
+          MATLAB implementation of a Rapidly-exploring Random Tree path-planning
+          simulation using an office floor-plan environment. The project demonstrates
+          map loading, obstacle representation, Dubins state-space planning,
+          occupancy-map validation and path generation through a constrained workspace.
+        </p>
+        <p>
+          The simulation was developed in MATLAB using Robotics System Toolbox
+          functions. Published evidence includes the generated figure and the
+          visible source-code excerpt.
+        </p>
+        <div class="tag-list">
+          <span class="tag">MATLAB</span>
+          <span class="tag">Robotics System Toolbox</span>
+          <span class="tag">RRT</span>
+          <span class="tag">Path planning</span>
+          <span class="tag">Dubins state space</span>
+          <span class="tag">Occupancy maps</span>
+          <span class="tag">Simulation</span>
+        </div>
+      </article>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Technical method</h3>
+          <p>
+            The script loads a predefined occupancy-map environment, applies obstacle
+            data, defines a Dubins vehicle state space and uses an RRT planner to search
+            for a route between the start and goal states. The resulting tree expansion
+            and final path are plotted over the office floor plan.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Published evidence</h3>
+          <p>
+            The output figure shows the obstacle field, tree exploration and final
+            planned path. The MATLAB source code is shown alongside the generated output.
+          </p>
+        </article>
+      </div>
+
+      <h3>Simulation output and MATLAB code</h3>
+
+      <div class="rrt-output-code-grid">
+        <figure class="evidence-item rrt-output-figure">
+          <img
+            src="./images/robotics-automation/rrt-path-planning/rrt-office-floor-plan-output.png"
+            alt="MATLAB RRT path-planning output showing an office floor plan, tree expansion and final path"
+            loading="lazy"
+          >
+          <figcaption>
+            MATLAB RRT path-planning output. The blue tree shows sampled route
+            exploration; the red line shows the final planned path through the
+            floor-plan environment.
+          </figcaption>
+        </figure>
+
+        <div class="code-panel rrt-code-panel">
+          <h4>MATLAB code excerpt</h4>
+<pre><code>clc;
+clear all;
+
+%% Section 1 - Laying out the floor plan
+load exampleMaps.mat
+whos *Map*
+
+map = binaryOccupancyMap(complexMap, 2);
+
+robotRadius = 0.2;
+inflateRadius = 0.1;
+
+mapInflated = copy(map);
+inflate(mapInflated, inflateRadius);
+
+% Adding obstacles
+x = [12.0; 16.5; 10.0; 13.0; 23.0];
+y = [8.0; 9.0; 5.0; 2.0; 12.0];
+
+setOccupancy(map, [x y], ones(5, 1));
+show(mapInflated)
+
+%% Section 2 - StateSpaceDubins
+stateSpace = stateSpaceDubins;
+sv = validatorOccupancyMap(stateSpace);
+sv.Map = map;
+
+turningRadius = 0.1;
+stateBounds = [0, 24; 0, 22; -pi, pi];
+stateSpace.StateBounds = stateBounds;
+
+%% Section 3 - RRT Programme
+start = [2, 2, 0];
+goal = [24, 15, 0];
+
+planner = plannerRRT(stateSpace, sv, MaxConnectionDistance = 0.2);
+
+rng(100, 'twister');
+[pthObj, solnInfo] = plan(planner, start, goal);
+
+show(map)
+grid on;
+title('Office Floor Plan')
+hold on
+
+plot(solnInfo.TreeData(:, 1), solnInfo.TreeData(:, 2), '.-')
+plot(pthObj.States(:, 1), pthObj.States(:, 2), 'r-', 'LineWidth', 2)</code></pre>
+        </div>
+      </div>
+
+      <h3>Interactive Browser Demonstration</h3>
+
+      <article class="card rrt-demo-panel" aria-labelledby="rrt-demo-title">
+        <p id="rrt-demo-title" class="rrt-demo-instructions">
+          A vanilla JavaScript reimplementation of the same algorithm, running
+          live in the browser with no dependencies. Click the canvas once to
+          reposition the start marker, again to reposition the goal, then
+          press Run. The tree expansion is deterministic for a given seed.
+        </p>
+
+        <div class="rrt-canvas-wrap">
+          <canvas
+            id="rrt-canvas"
+            role="img"
+            aria-label="Interactive RRT path-planning canvas showing an occupancy map, tree expansion and solution path."
+          >
+            Your browser does not support the HTML canvas element.
+          </canvas>
+        </div>
+
+        <div class="rrt-controls" role="group" aria-label="Demonstration controls">
+          <button id="rrt-run" type="button" class="button small">Run</button>
+          <button id="rrt-reset" type="button" class="button secondary small">Reset</button>
+
+          <label for="rrt-map">
+            Map
+            <select id="rrt-map">
+              <option value="office" selected>Office corridors</option>
+              <option value="slalom">Slalom</option>
+              <option value="pillars">Pillars</option>
+            </select>
+          </label>
+
+          <label for="rrt-speed">
+            Speed
+            <input id="rrt-speed" type="range" min="1" max="20" value="5">
+          </label>
+
+          <label for="rrt-seed">
+            Seed
+            <input id="rrt-seed" type="number" value="42" min="1" max="99999">
+          </label>
+        </div>
+
+        <p id="rrt-status" class="rrt-status" aria-live="polite">iterations    0   nodes    1   status: idle</p>
+      </article>
+    </section>
+
+    <!-- Portfolio website development -->
+    <section id="portfolio-website-development" class="automation-project">
+      <h2>Portfolio Website Development</h2>
+
+      <article class="card project-summary-card">
+        <p>
+          This portfolio was built using HTML, CSS, and Javascript to
+          present engineering evidence in a structured, maintainable and controlled
+          format. The websites code, structure, and architecture may be viewed by pressing f12. To ensure all animations work on Windows OS, please go to Settings > Accessibility > Visual Effects > Toggle "Animation effects".
+        </p>
+        <div class="tag-list">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">Responsive layout</span>
+          <span class="tag">Static site</span>
+          <span class="tag">Semantic markup</span>
+          <span class="tag">Evidence management</span>
+          <span class="tag">Controlled disclosure</span>
+        </div>
+      </article>
+
+	<!-- Site architecture diagram -->
+      <h2>Site architecture</h2>	
+      <figure class="site-arch-figure" aria-labelledby="site-arch-title">
+        <figcaption id="site-arch-title" class="site-arch-caption">
+          Site architecture: pages, shared assets, scripts and data flow.
+          The robotics page is highlighted by default as the exemplar.
+          Hover any page to see its shared dependencies; hover an asset
+          or data node to trace its direct connections. The animated
+          pulses show a live search query travelling from the highlighted
+          page to <code>search-index.json</code> and back.
+        </figcaption>
+
+        <div class="site-arch-wrap">
+          <svg
+            class="site-arch-svg"
+            viewBox="0 0 900 520"
+            role="img"
+            aria-label="Diagram of the portfolio's file architecture and data flow"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <marker id="arch-arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                      markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+              </marker>
+              <filter id="arch-glow" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="3" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <!-- Column labels -->
+            <text class="arch-col-label" x="130"  y="30" text-anchor="middle">Pages (HTML)</text>
+            <text class="arch-col-label" x="450"  y="30" text-anchor="middle">Shared assets</text>
+            <text class="arch-col-label" x="770"  y="30" text-anchor="middle">Data</text>
+
+            <!-- Pages column -->
+            <g class="arch-node" data-node="index">
+			<rect x="40"  y="60"  width="180" height="42" rx="6"/>
+              <text x="130" y="86" text-anchor="middle">index.html</text>
+            </g>
+            <g class="arch-node" data-node="about">
+			<rect x="40"  y="112" width="180" height="42" rx="6"/>
+              <text x="130" y="138" text-anchor="middle">about.html</text>
+            </g>
+            <g class="arch-node" data-node="experience">
+			<rect x="40"  y="164" width="180" height="42" rx="6"/>
+              <text x="130" y="190" text-anchor="middle">experience.html</text>
+            </g>
+            <g class="arch-node" data-node="cad">
+			<rect x="40"  y="216" width="180" height="42" rx="6"/>
+              <text x="130" y="242" text-anchor="middle">cad.html</text>
+            </g>
+            <g class="arch-node" data-node="manufacturing">
+			<rect x="40"  y="268" width="180" height="42" rx="6"/>
+              <text x="130" y="294" text-anchor="middle">manufacturing-systems.html</text>
+            </g>
+            <g class="arch-node" data-node="robotics">
+			<rect x="40"  y="320" width="180" height="42" rx="6"/>
+              <text x="130" y="346" text-anchor="middle">robotics-automation.html</text>
+            </g>
+            <g class="arch-node" data-node="dissertation">
+			<rect x="40"  y="372" width="180" height="42" rx="6"/>
+              <text x="130" y="398" text-anchor="middle">dissertation.html</text>
+            </g>
+
+            <!-- Shared assets column -->
+            <g class="arch-node arch-asset" data-node="styles">
+              <rect x="360" y="80"  width="180" height="46" rx="6"/>
+              <text x="450" y="100" text-anchor="middle">assets/styles.css</text>
+              <text x="450" y="118" text-anchor="middle" class="arch-sub">shared design system</text>
+            </g>
+            <g class="arch-node arch-asset" data-node="site-js">
+              <rect x="360" y="156" width="180" height="46" rx="6"/>
+              <text x="450" y="176" text-anchor="middle">site-interactions.js</text>
+              <text x="450" y="194" text-anchor="middle" class="arch-sub">nav, dropdowns, UI</text>
+            </g>
+            <g class="arch-node arch-asset" data-node="search-js">
+              <rect x="360" y="232" width="180" height="46" rx="6"/>
+              <text x="450" y="252" text-anchor="middle">search.js</text>
+              <text x="450" y="270" text-anchor="middle" class="arch-sub">Ctrl+K, ranking</text>
+            </g>
+            <g class="arch-node arch-asset" data-node="rrt-js">
+              <rect x="360" y="308" width="180" height="46" rx="6"/>
+              <text x="450" y="328" text-anchor="middle">rrt-demo.js</text>
+              <text x="450" y="346" text-anchor="middle" class="arch-sub">canvas + algorithm</text>
+            </g>
+            <g class="arch-node arch-asset" data-node="build-js">
+              <rect x="360" y="384" width="180" height="46" rx="6"/>
+              <text x="450" y="404" text-anchor="middle">build-search-index.js</text>
+              <text x="450" y="422" text-anchor="middle" class="arch-sub">Node build step</text>
+            </g>
+
+            <!-- Data column -->
+            <g class="arch-node arch-data" data-node="index-json">
+              <rect x="680" y="220" width="180" height="46" rx="6"/>
+              <text x="770" y="240" text-anchor="middle">search-index.json</text>
+              <text x="770" y="258" text-anchor="middle" class="arch-sub">generated at build</text>
+            </g>
+            <g class="arch-node arch-data" data-node="media">
+              <rect x="680" y="300" width="180" height="46" rx="6"/>
+              <text x="770" y="320" text-anchor="middle">images / documents / videos</text>
+              <text x="770" y="338" text-anchor="middle" class="arch-sub">per-project trees</text>
+            </g>
+
+            <!-- Static edges: pages -> shared assets (drawn from robotics row as an exemple) -->
+            <g class="arch-edges" fill="none" stroke="currentColor">
+              <path d="M220,340 C280,340 300,103 360,103" data-from="pages" data-to="styles"/>
+              <path d="M220,340 C280,340 300,179 360,179" data-from="pages" data-to="site-js"/>
+              <path d="M220,340 C280,340 300,255 360,255" data-from="pages" data-to="search-js"/>
+              <path d="M220,340 C300,340 320,331 360,331" data-from="pages" data-to="rrt-js"/>
+            </g>
+
+            <!-- Static edges: assets -> data -->
+            <g class="arch-edges" fill="none" stroke="currentColor">
+              <path d="M540,255 C610,255 620,243 680,243" marker-end="url(#arch-arrow)" data-from="search-js" data-to="index-json"/>
+              <path d="M540,407 C610,407 620,243 680,243" marker-end="url(#arch-arrow)" data-from="build-js"  data-to="index-json"/>
+              <path d="M540,331 C610,331 620,323 680,323" marker-end="url(#arch-arrow)" data-from="rrt-js"    data-to="media"/>
+            </g>
+
+            <!-- Animated data-flow paths (search query lifecycle) -->
+            <path id="arch-flow-1" class="arch-flow"
+                  d="M220,340 C300,340 320,255 360,255" fill="none"/>
+            <path id="arch-flow-2" class="arch-flow"
+                  d="M540,255 C610,255 620,243 680,243" fill="none"/>
+            <path id="arch-flow-3" class="arch-flow"
+                  d="M680,243 C620,243 610,255 540,255" fill="none"/>
+            <path id="arch-flow-4" class="arch-flow"
+                  d="M360,255 C300,255 260,340 220,340" fill="none"/>
+
+            <circle class="arch-pulse" r="5" filter="url(#arch-glow)">
+              <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">
+                <mpath href="#arch-flow-1"/>
+              </animateMotion>
+            </circle>
+            <circle class="arch-pulse" r="5" filter="url(#arch-glow)" begin="1.5s">
+              <animateMotion dur="6s" begin="1.5s" repeatCount="indefinite" rotate="auto">
+                <mpath href="#arch-flow-2"/>
+              </animateMotion>
+            </circle>
+            <circle class="arch-pulse arch-pulse--return" r="5" filter="url(#arch-glow)">
+              <animateMotion dur="6s" begin="3s" repeatCount="indefinite" rotate="auto">
+                <mpath href="#arch-flow-3"/>
+              </animateMotion>
+            </circle>
+            <circle class="arch-pulse arch-pulse--return" r="5" filter="url(#arch-glow)">
+              <animateMotion dur="6s" begin="4.5s" repeatCount="indefinite" rotate="auto">
+                <mpath href="#arch-flow-4"/>
+              </animateMotion>
+            </circle>
+
+            <!-- Flow legend -->
+            <g class="arch-legend" transform="translate(40, 460)">
+              <circle class="arch-legend-out" cx="8" cy="8" r="5"/>
+              <text x="22" y="12">Outbound query: page → search.js → search-index.json</text>
+
+              <circle class="arch-legend-ret" cx="8" cy="34" r="5"/>
+              <text x="22" y="38">Return: results → search.js → page render</text>
+            </g>
+          </svg>
+        </div>
+      </figure>
+	        <div class="grid">
+        <article class="card">
+          <h3>Structure and organisation</h3>
+          <p>
+            Seven live pages (Home, About, Experience, CAD, Manufacturing, Robotics
+            &amp; Automation, Dissertation), a shared stylesheet, and separate
+            <code>images/</code>, <code>documents/</code> and <code>videos/</code>
+            trees organised by project. Every page uses the same header, navigation
+            and footer template for consistency.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Navigation and layout</h3>
+          <p>
+            Shared responsive navigation with hover dropdowns for the CAD,
+            Manufacturing, and Robotics &amp; Automation project groups. Layout uses
+            CSS Grid and Flexbox for evidence grids, project cards, and the
+            side-by-side figure/code display used on this page.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Evidence handling</h3>
+          <p>
+            Media is organised per project (images, PDFs, and short MP4 loops for
+            CAD demonstrations). Reports are linked directly as PDFs with visible
+            preview images and captions. Alt text and figure captions are applied
+            consistently for accessibility and clarity.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Controlled disclosure</h3>
+          <p>
+            Industrial content is filtered before publication: no employee names,
+            internal architecture, site-specific images, production rates, equipment
+            locations or confidential drawings are shown. Approved screenshots and
+            loops use visible captions and disclaimers.
+          </p>
+        </article>
+      </div>
+    </section>
+	  
+<section id="live-data-integration">
+        <h2>Live Data Integration and Visualisation</h2>
+        <p>
+          The below dashboard is an example of consuming a third-party engineering API from the
+          browser and rendering the response as an inline visualisation. The
+          dynamic dashboard makes live requests to the UK
+          National Grid ESO's public
+          <a href="https://carbonintensity.org.uk/" target="_blank" rel="noopener">Carbon Intensity API</a>
+          on page load and refreshes every five minutes, showing the current
+          grid carbon intensity, the last 24 hours as a sparkline, and the
+          real-time generation mix by fuel type. It is written in vanilla
+          JavaScript with no charting library, degrades gracefully when the
+          API is unreachable, and demonstrates the same principles used when
+          integrating SCADA, MES or IIoT feeds in a manufacturing setting.
+        </p>
+
+        <!-- Live UK grid carbon intensity dashboard -->
+        <section class="carbon-dashboard" aria-labelledby="carbon-title">
+          <div class="carbon-header">
+            <h3 id="carbon-title">Live: UK grid carbon intensity</h3>
+            <div class="carbon-header-controls">
+              <span class="carbon-status" data-carbon-status>Loading…</span>
+              <button type="button" class="carbon-refresh" data-carbon-refresh
+                      aria-label="Refresh data now">
+                <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"
+                     fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M23 4v6h-6"/>
+                  <path d="M1 20v-6h6"/>
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10"/>
+                  <path d="M20.49 15a9 9 0 0 1-14.85 3.36L1 14"/>
+                </svg>
+                <span>Refresh</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="carbon-grid">
+            <div class="carbon-current" aria-live="polite">
+              <div class="carbon-value">
+                <span data-carbon-value>—</span>
+                <span class="carbon-unit">gCO₂/kWh</span>
+              </div>
+              <div class="carbon-label" data-carbon-index>—</div>
+              <div class="carbon-time" data-carbon-time>—</div>
+            </div>
+
+            <div class="carbon-spark">
+              <div style="font-size:0.85rem;color:var(--muted);margin-bottom:0.5rem;font-weight:500">Carbon intensity — past 24 hours</div>
+
+              <table style="width:100%;border-collapse:collapse;table-layout:fixed">
+                <tr>
+                  <td style="width:56px;vertical-align:top;padding:0">
+                    <div style="height:80px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;font-size:0.72rem;color:var(--muted);line-height:1;padding-right:6px;font-variant-numeric:tabular-nums">
+                      <span>300</span>
+                      <span>200</span>
+                      <span>100</span>
+                      <span>0</span>
+                    </div>
+                    <div style="font-size:0.62rem;color:var(--muted);letter-spacing:0.03em;text-align:right;padding-right:6px;margin-top:0.15rem">gCO₂/kWh</div>
+                  </td>
+                  <td style="vertical-align:top;padding:0">
+                    <svg viewBox="0 0 400 300" preserveAspectRatio="none" style="width:100%;height:80px;display:block;color:var(--accent);background:var(--panel-soft)" aria-label="Sparkline of the past 24 hours of grid carbon intensity">
+                      <!-- Traffic-light bands: ESO carbon intensity index thresholds within 0-300 range -->
+                      <rect x="0" y="200" width="400" height="100" fill="#4caf50" opacity="0.28"/>
+                      <rect x="0" y="100" width="400" height="100" fill="#f5a623" opacity="0.28"/>
+                      <rect x="0" y="0"   width="400" height="100" fill="#d43a2f" opacity="0.30"/>
+                      <path data-carbon-sparkline fill="none" stroke="currentColor" stroke-width="2.5"/>
+                      <path data-carbon-sparkline-fill fill="currentColor" opacity="0.18" stroke="none"/>
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style="padding:0.35rem 0 0">
+                    <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--muted)">
+                      <span>24h ago</span>
+                      <span>12h ago</span>
+                      <span>now</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style="padding:0.15rem 0 0;text-align:center;font-size:0.72rem;color:var(--muted);letter-spacing:0.03em">Time</td>
+                </tr>
+				<tr>
+                  <td></td>
+                  <td style="padding:0.5rem 0 0">
+                    <div style="display:flex;flex-wrap:wrap;gap:0.4rem 1.25rem;justify-content:center;font-size:0.72rem;color:var(--muted)">
+                      <span style="display:inline-flex;align-items:center;gap:0.4rem"><span style="display:inline-block;width:11px;height:11px;background:#4caf50;opacity:0.55;border-radius:2px"></span>VERY LOW (&lt;100)</span>
+                      <span style="display:inline-flex;align-items:center;gap:0.4rem"><span style="display:inline-block;width:11px;height:11px;background:#f5a623;opacity:0.55;border-radius:2px"></span>LOW (100–199)</span>
+                      <span style="display:inline-flex;align-items:center;gap:0.4rem"><span style="display:inline-block;width:11px;height:11px;background:#d43a2f;opacity:0.6;border-radius:2px"></span>MODERATE (200–299)</span>
+                      <span style="opacity:0.7;font-style:italic">HIGH ≥300 clips above chart</span>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="carbon-mix">
+              <div class="carbon-mix-label">Generation mix (current half-hour)</div>
+              <div style="display:flex;justify-content:center">
+                <svg viewBox="0 0 160 160" width="180" height="180" class="carbon-mix-donut"
+                     data-carbon-mix-donut
+                     role="img" aria-label="Donut chart of current UK generation mix by source">
+                  <g data-carbon-mix-segments></g>
+                  <text x="80" y="72" text-anchor="middle" class="carbon-donut-center-label"
+                        data-carbon-lowcarbon-label>Low Carbon</text>
+                  <text x="80" y="94" text-anchor="middle" class="carbon-donut-center-value"
+                        data-carbon-lowcarbon>—</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Legend spans the full dashboard width, wraps to a second row if needed -->
+          <ul data-carbon-mix-legend
+              style="list-style:none;padding:0;margin:1rem 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:0.35rem 1.5rem;font-size:0.82rem;color:var(--text)"></ul>
+
+          <details class="carbon-method">
+            <summary>How this works</summary>
+            <ol>
+              <li>On page load, the browser calls the National Grid ESO
+                  <a href="https://carbonintensity.org.uk/" target="_blank" rel="noopener">Carbon Intensity API</a>
+                 . This is a free, no-authentication public endpoint published by the UK's electricity system operator.</li>
+              <li>Two requests are made in parallel: <code>/intensity/date</code> returns the last 24 hours of
+                  half-hourly readings for the sparkline, and <code>/generation</code> returns the current mix
+                  by fuel type.</li>
+              <li>The current reading and index label (<em>low</em> / <em>moderate</em> / <em>high</em>) are
+                  extracted from the most recent entry and shown as the headline value.</li>
+              <li>The 24-hour series is drawn to an inline SVG sparkline using a plain path and no charting
+                  library. The Y-axis is fixed to 0–300 gCO₂/kWh so fluctuations stay visible across the
+                  three ESO index bands that cover typical UK conditions. RAG colouring (green/amber/red)
+                  is applied to the bands; readings above 300 gCO₂/kWh clip above the chart, which is
+                  itself the intended signal.</li>
+              <li>The generation mix is rendered as a stacked bar with a colour legend. Percentages come
+                  directly from the API and add to 100%.</li>
+              <li>If any request fails, the dashboard falls back to a "data unavailable" state rather than
+                  blocking the rest of the page. Data auto-refreshes every 5 minutes.</li>
+            </ol>
+          </details>
+        </section>
+      </section>
+
+
+  </main>
+
+  <!-- Site footer -->
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <p>Adam Munn: Mechanical and Manufacturing Engineering Portfolio</p>
+    </div>
+  </footer>
+  <script src="scripts/rrt-demo.js" defer></script>
+  <script src="scripts/site-architecture.js" defer></script>
+  <script src="scripts/carbon-dashboard.js" defer></script>
+  <script src="scripts/search.js" defer></script>
+</body>
+</html>

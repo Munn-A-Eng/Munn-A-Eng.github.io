@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Adam Munn engineering portfolio">
+  <title>Manufacturing Systems | Adam Munn</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>try{if(sessionStorage.getItem('headshotFlip'))document.documentElement.classList.add('flip-pending');}catch(e){}</script>
+  <script>(function(){try{var p=JSON.parse(localStorage.getItem('portfolio-a11y-prefs')||'null');var h=document.documentElement;var d={theme:'light',contrast:'normal',textSize:'normal',motion:'auto'};if(p&&typeof p==='object'){for(var k in d){if(p[k])d[k]=p[k];}}h.setAttribute('data-theme',d.theme);h.setAttribute('data-contrast',d.contrast);h.setAttribute('data-text-size',d.textSize);h.setAttribute('data-motion',d.motion);}catch(e){}})();</script>
+  <script src="scripts/site-interactions.js?v=4" defer></script>
+</head>
+<body>
+	<!-- Site header -->
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">Adam Munn, BEng, EngTech (MIMechE)</a>
+
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <div class="nav-dropdown">
+        <a href="experience.html" class="nav-dropdown-link">
+          Experience <span class="nav-caret">▾</span>
+        </a>
+        <div class="nav-submenu">
+          <a href="experience.html#engineering-experience">Engineering Experience</a>
+          <a href="experience.html#additional-employment">Additional Employment</a>
+          <a href="experience.html#qualifications">Qualifications and Certifications</a>
+          <a href="experience.html#awards">Awards and Recognition</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="cad.html" class="nav-dropdown-link">
+          CAD <span class="nav-caret">▾</span>
+        </a>
+        <div class="nav-submenu">
+          <a href="cad.html#hevasure-aquila-2">Hevasure Aquila 2</a>
+          <a href="cad.html#throttle-valve-assembly">Throttle Valve Assembly</a>
+          <a href="cad.html#reverse-engineering-mould-design-cam">Reverse Engineering, Mould Design and CAM</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="manufacturing-systems.html" class="nav-dropdown-link active">
+          Manufacturing <span class="nav-caret">▾</span>
+        </a>
+        <div class="nav-submenu">
+          <a href="manufacturing-systems.html#hydraulic-disc-brake-caliper-digital-twin">Hydraulic Disc Brake Caliper Digital Twin</a>
+          <a href="manufacturing-systems.html#axle-optimisation">Axle Optimisation</a>
+          <a href="manufacturing-systems.html#ipv-vision-system-upgrades">IPV Vision-System Upgrades</a>
+          <a href="manufacturing-systems.html#output-transfer-gear-line-optimisation">Output Transfer Gear Line Optimisation</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="robotics-automation.html" class="nav-dropdown-link">
+          Robotics &amp; Automation <span class="nav-caret">▾</span>
+        </a>
+        <div class="nav-submenu">
+          <a href="robotics-automation.html#industrial-cobot-vision-support">Industrial COBOT and Vision-System Support</a>
+          <a href="robotics-automation.html#rrt-path-planning">RRT Path-Planning Simulation</a>
+          <a href="robotics-automation.html#portfolio-website-development">Portfolio Website Development</a>
+          <a href="robotics-automation.html#live-data-integration">Live Data Integration</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="dissertation.html" class="nav-dropdown-link">
+          Dissertation <span class="nav-caret">▾</span>
+        </a>
+        <div class="nav-submenu">
+          <a href="dissertation.html#project-overview">Project Overview</a>
+          <a href="dissertation.html#abstract">Abstract</a>
+          <a href="dissertation.html#research-approach">Research Approach</a>
+          <a href="dissertation.html#selected-findings">Selected Findings</a>
+          <a href="dissertation.html#chapter-summaries">Chapter Summaries</a>
+          <a href="dissertation.html#submitted-poster">Submitted Poster</a>
+          <a href="dissertation.html#supporting-documents">Supporting Documents</a>
+        </div>
+      </div>
+    </nav>
+
+    <img
+      class="header-headshot"
+      src="./images/profile/adam-munn-headshot.png"
+      alt="Headshot of Adam Munn"
+    >
+  </div>
+
+</header>
+	<!-- Contact Strip -->
+  <div class="contact-strip">
+    <span>Email: <a href="mailto:Adammunn71@gmail.com">Adammunn71@gmail.com</a></span>
+    <span>LinkedIn: <a href="https://www.linkedin.com/in/adammunnuop/" target="_blank" rel="noopener noreferrer">Adam Munn</a></span>
+    <button type="button" class="search-open contact-search" aria-label="Search this site (press Ctrl+K)">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+      <span>Search</span>
+      <kbd class="contact-search-kbd">Ctrl K</kbd>
+    </button>
+  </div>
+  <main>
+	<!-- Page Introduction -->
+<section class="page-intro">
+  <h1>Manufacturing</h1>
+    <p class="eyebrow">Industrial and Simulated Manufacturing Projects</p>
+  <p class="lead">
+    The below manufacturing examples are taken from work completed at the University of Portsmouth, and Caterpillar.<br>Projects cover: manufacturing-system design, production optimisation, digital-twin modelling, vision systems and production support.<br><b>N.B.</b> <em>Examples of manufacturing projects completed at Hevasure can be found under "CAD > Hevasure Aquila 2"</em>. 
+  </p>
+</section>
+	<!-- Hydraulic Disc Brake Caliper Digital Twin -->
+<section id="hydraulic-disc-brake-caliper-digital-twin" class="manufacturing-project">
+  <h2>
+    Design and Digital Twin Optimisation of a Hybrid Flow Manufacturing System
+    for a Hydraulic Disc Brake Caliper
+  </h2>
+  <p class="project-type">Academic project</p>
+  <p class="project-meta">
+    Manufacturing Systems · Enterprise Dynamics · 2026
+  </p>
+  <div class="grid">
+    <article class="card">
+      <h3>Project overview</h3>
+      <p>
+        A hybrid flow manufacturing system was developed for an aluminium-housing
+        hydraulic disc brake caliper assembly. The proposed system combined parallel
+        CNC machining, manual assembly and in-line pressure-decay testing.
+      </p>
+      <p>
+        The system was designed around a target output of 1,000 units per day and
+        assessed using takt-time analysis, capacity calculations, line balancing,
+        reliability inputs and defect-recirculation logic.
+      </p>
+    </article>
+    <article class="card">
+      <h3>Digital-twin model</h3>
+      <p>
+        The production system was modelled in Enterprise Dynamics. The model included
+        parallel CNC resources, manual assembly, leak testing, rework routing, internal
+        logistics, palletising, an RFID gate and COBOT-assisted handling.
+      </p>
+      <p>
+        A live Excel dashboard layer was used to record quality and production KPIs
+        without changing the routing logic of the simulation.
+      </p>
+    </article>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <h3>Key findings</h3>
+      <p>
+        CNC machining was identified as the governing constraint. Under the model
+        assumptions, availability improvements produced a greater output increase than
+        further reductions in downstream cycle times.
+      </p>
+      <p>
+        The project demonstrated that targeted Industry 4.0 deployment should focus on
+        fault detection, maintenance response and availability recovery at the governing
+        resource rather than applying digital monitoring uniformly across the line.
+      </p>
+    </article>
+    <article class="card">
+      <h3>Methods and tools</h3>
+      <div class="tag-list">
+        <span class="tag">Enterprise Dynamics</span>
+        <span class="tag">Digital twin</span>
+        <span class="tag">Takt-time analysis</span>
+        <span class="tag">Line balancing</span>
+        <span class="tag">RFID</span>
+        <span class="tag">COBOTs</span>
+        <span class="tag">Excel dashboards</span>
+        <span class="tag">Industry 4.0</span>
+      </div>
+    </article>
+    <article class="card">
+      <h3>Available evidence</h3>
+      <p>
+        The public report records the system-design process, capacity basis,
+        simulation structure, scenario testing and final conclusions.
+      </p>
+      <div class="actions">
+        <a
+          class="button"
+          href="./documents/manufacturing/hydraulic-disc-brake-caliper-digital-twin/manufacturing-systems-report-public.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Manufacturing Systems Report
+        </a>
+      </div>
+    </article>
+  </div>
+ <br>
+  <h3>Project images</h3>
+  <div class="evidence-grid manufacturing-evidence-grid">
+    <figure class="evidence-item">
+      <img
+        src="./images/manufacturing/hydraulic-disc-brake-caliper-digital-twin/facility-layout.png"
+        alt="Proposed facility layout for the hydraulic disc brake caliper manufacturing system"
+        loading="lazy"
+      >
+      <figcaption>Proposed facility layout</figcaption>
+    </figure>
+    <figure class="evidence-item">
+      <img
+        src="./images/manufacturing/hydraulic-disc-brake-caliper-digital-twin/baseline-digital-twin.png"
+        alt="Enterprise Dynamics baseline digital twin of the proposed manufacturing system"
+        loading="lazy"
+      >
+      <figcaption>Enterprise Dynamics baseline model</figcaption>
+    </figure>
+    <figure class="evidence-item">
+      <img
+        src="./images/manufacturing/hydraulic-disc-brake-caliper-digital-twin/kpi-dashboard.png"
+        alt="Quality and production dashboards linked to the manufacturing digital twin"
+        loading="lazy"
+      >
+      <figcaption>Quality and production KPI dashboards</figcaption>
+    </figure>
+    <figure class="evidence-item">
+      <img
+        src="./images/manufacturing/hydraulic-disc-brake-caliper-digital-twin/final-system-layout.png"
+        alt="Final optimised manufacturing-system layout in Enterprise Dynamics"
+        loading="lazy"
+      >
+      <figcaption>Final manufacturing-system layout</figcaption>
+    </figure>
+  </div>
+</section>
+	<!-- Axle Optimisation -->
+<section id="axle-optimisation" class="manufacturing-project">
+  <h2>Axle Optimisation</h2>
+  <p class="project-type">Industrial project · Caterpillar Inc.</p>
+  <p class="project-meta">Capital expenditure project · March 2025 – July 2025</p>
+  <article class="card">
+    <p>
+      Redesign of an axle value stream to support the transition from two shifts
+      to one shift while retaining production throughput.
+    </p>
+    <p>
+      The work included planning and de-risking the relocation of an IPV
+      vision-system station, production-station setup, tool configurations and the
+      installation of large-screen production reporting linked to the manufacturing
+      execution system.
+    </p>
+    <div class="tag-list">
+      <span class="tag">Capital expenditure</span>
+      <span class="tag">Value-stream optimisation</span>
+      <span class="tag">Vision systems</span>
+      <span class="tag">MES reporting</span>
+      <span class="tag">Computer networking</span>
+      <span class="tag">Kaizen</span>
+    </div>
+  </article>
+</section>
+	<!-- IPV Vision System Upgrades -->
+<section id="ipv-vision-system-upgrades" class="manufacturing-project">
+  <h2>IPV Vision-System Upgrades and Software Beta Test</h2>
+  <p class="project-type">Industrial project · Caterpillar Inc.</p>
+  <p class="project-meta">July 2024 – July 2025</p>
+  <article class="card">
+    <p>
+      Production support for newly introduced image-inference software used by
+      site vision systems. The work involved investigating production issues,
+      supporting software patches and developing a standard configuration and
+      installation package for site-wide upgrades.
+    </p>
+    <p>
+      The project combined manufacturing support with IT networking and
+      cybersecurity awareness. Internal configuration details are intentionally
+      excluded from the public portfolio.
+    </p>
+    <div class="tag-list">
+      <span class="tag">Vision systems</span>
+      <span class="tag">Image inference</span>
+      <span class="tag">Software beta testing</span>
+      <span class="tag">Computer networking</span>
+      <span class="tag">Cybersecurity</span>
+      <span class="tag">Kaizen</span>
+    </div>
+  </article>
+</section>
+	<!-- Output XNSFER Gear Line Optimisation -->
+<section id="output-transfer-gear-line-optimisation" class="manufacturing-project">
+  <h2>Output Transfer Gear Line Optimisation</h2>
+  <p class="project-type">Industrial project · Caterpillar Inc.</p>
+  <p class="project-meta">Capital expenditure project · April 2025 – July 2025</p>
+  <article class="card">
+    <p>
+      Consolidation of two production lines into a single line capable of supporting
+      two separate products.
+    </p>
+    <p>
+      The project included production-station setup and design, health-and-safety
+      sign-off activities, manufacturing-execution-system configuration, fixture
+      design and the preparation of standard work.
+    </p>
+    <div class="tag-list">
+      <span class="tag">Capital expenditure</span>
+      <span class="tag">Production-line consolidation</span>
+      <span class="tag">MES configuration</span>
+      <span class="tag">Fixture design</span>
+      <span class="tag">Creo Parametric</span>
+      <span class="tag">Standard work</span>
+    </div>
+  </article>
+</section>
+	<!-- Publication Notes -->
+<section>
+  <h2>Publication Notes</h2>
+  <div class="callout">
+    Industrial project descriptions are limited to publishable high-level information.
+    Internal layouts, production data, software configurations and commercially sensitive
+    documents are not included.
+  </div>
+</section>
+  </main>
+	<!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <p>Adam Munn: Mechanical and Manufacturing Engineering Portfolio</p>
+    </div>
+  </footer>
+  <script src="scripts/search.js" defer></script>
+  <script src="scripts/accessibility.js" defer></script>
+</body>
+</html>
