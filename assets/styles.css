@@ -237,7 +237,10 @@ main > section + section > h1:first-child {
 
 @media (max-width: 780px) {
   .nav-wrap { align-items: flex-start; flex-direction: column; }
-  .nav-links { gap: 0.65rem; }
+  .nav-links {
+    gap: 0.4rem 0.85rem;
+    font-size: 0.85rem;
+  }
   main { padding-top: 2rem; }
   .hero { padding-top: 2rem; }
 }
@@ -306,9 +309,10 @@ box-shadow: 0 0.75rem 1.5rem rgba(32, 40, 48, 0.14);
 }
 
 .nav-dropdown:hover .nav-submenu,
-.nav-dropdown:focus-within .nav-submenu {
-display: grid;
-gap: 0.15rem;
+.nav-dropdown:focus-within .nav-submenu,
+.nav-dropdown[data-open="true"] .nav-submenu {
+  display: grid;
+  gap: 0.15rem;
 }
 
 .nav-submenu a {
@@ -1774,7 +1778,6 @@ body {
   color: var(--text);
   letter-spacing: 0.01em;
 }
-}
 .a11y-toggle:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,0.18); }
 .a11y-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
@@ -2090,6 +2093,7 @@ body {
 
 @media (max-width: 640px) {
   .comment-box { padding: 1.25rem; }
+}
 /* ---------------------------------------------------------------
    Live carbon intensity dashboard
    --------------------------------------------------------------- */
@@ -2467,4 +2471,361 @@ body {
   font-weight: 600;
   color: var(--text);
   font-variant-numeric: tabular-nums;
+}
+
+/* Mobile: shrink a11y widget to an icon, keep it out of the way of content */
+@media (max-width: 780px) {
+  .a11y-widget {
+    bottom: 0.75rem;
+    right: 0.75rem;
+  }
+  .a11y-toggle {
+    padding: 0;
+    width: 44px;
+    justify-content: center;
+    gap: 0;
+  }
+  .a11y-toggle-label {
+    display: none;
+  }
+  /* Prevent the fixed widget from covering the last row of content */
+  body {
+    padding-bottom: 4rem;
+  }
+}
+/* =====================================================================
+   Nav dropdowns — <details>/<summary> pattern (replaces .nav-dropdown-link)
+   Desktop: absolute drop-down on hover/focus/click.
+   Mobile:  native tap-to-open accordion.
+   ===================================================================== */
+
+.nav-dropdown-summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--muted);
+  user-select: none;
+}
+.nav-dropdown-summary::-webkit-details-marker { display: none; }
+.nav-dropdown-summary::marker { display: none; }
+.nav-dropdown-summary:hover,
+.nav-dropdown-summary.active { color: var(--accent); }
+.nav-dropdown-summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.nav-dropdown-list { display: none; }
+
+@media (min-width: 781px) {
+  .nav-dropdown:hover > .nav-dropdown-list,
+  .nav-dropdown:focus-within > .nav-dropdown-list,
+  .nav-dropdown[open] > .nav-dropdown-list {
+    display: grid;
+    gap: 0.15rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 20;
+    min-width: 260px;
+    padding: 0.45rem;
+    border: 1px solid var(--border);
+    border-radius: 0.65rem;
+    background: var(--panel);
+    box-shadow: 0 0.75rem 1.5rem rgba(32, 40, 48, 0.14);
+  }
+  .nav-dropdown-list a {
+    display: block;
+    padding: 0.45rem 0.55rem;
+    border-radius: 0.35rem;
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .nav-dropdown-list a:hover,
+  .nav-dropdown-list a:focus {
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+}
+
+@media (max-width: 780px) {
+  .nav-dropdown { width: 100%; }
+  .nav-dropdown-summary { padding: 0.35rem 0; width: 100%; }
+  .nav-dropdown[open] > .nav-dropdown-list {
+    display: grid;
+    gap: 0.1rem;
+    margin: 0.15rem 0 0.4rem 0.9rem;
+    padding: 0.15rem 0;
+  }
+  .nav-dropdown-list a {
+    display: block;
+    padding: 0.4rem 0.5rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .nav-dropdown-list a:hover,
+  .nav-dropdown-list a:focus {
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .nav-caret { display: inline-block; transition: transform 0.15s ease; }
+  .nav-dropdown[open] .nav-caret { transform: rotate(180deg); }
+}
+/* Mobile: allow brand to wrap onto two lines rather than overflow */
+@media (max-width: 520px) {
+  .brand {
+    white-space: normal;
+    font-size: 0.85rem;
+    line-height: 1.25;
+  }
+}
+/* Contact strip: allow email to break and prevent narrow overflow */
+.contact-strip {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 520px) {
+  .contact-strip {
+    gap: 0.5rem 0.75rem;
+    font-size: 0.78rem;
+  }
+  .contact-search {
+    min-width: 0;
+    width: 100%;
+    justify-content: center;
+    margin-left: 0;
+  }
+}
+/* Home hero buttons stack full-width on very small screens for tappability */
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .actions .button {
+    text-align: center;
+    padding: 0.85rem 1rem;
+  }
+}
+/* Carbon dashboard: tighter padding on small screens */
+@media (max-width: 520px) {
+  .carbon-dashboard {
+    padding: 1rem 1rem;
+    margin: 1.5rem 0;
+  }
+  .carbon-header h2,
+  .carbon-header h3 {
+    font-size: 1.15rem;
+  }
+  .carbon-value {
+    font-size: 2rem;
+  }
+}
+/* Site architecture diagram: signal that it's horizontally scrollable on mobile */
+@media (max-width: 780px) {
+  .site-arch-wrap {
+    background:
+      linear-gradient(to right, var(--panel) 20%, transparent 40%),
+      linear-gradient(to left,  var(--panel) 20%, transparent 40%),
+      linear-gradient(to right, var(--border), var(--border)) center bottom / 30px 2px no-repeat;
+    -webkit-overflow-scrolling: touch;
+  }
+  .site-arch-caption::after {
+    content: " (Scroll horizontally to view the full diagram.)";
+    color: var(--accent);
+    font-style: italic;
+  }
+}
+/* iOS Safari: prevent auto-zoom on input focus by ensuring 16px minimum */
+@media (max-width: 780px) {
+  .comment-box .comment-row input,
+  .comment-box .comment-row textarea {
+    font-size: 16px;
+  }
+  .rrt-controls select,
+  .rrt-controls input[type="number"] {
+    font-size: 16px;
+  }
+}
+/* Slightly tighter main padding on very narrow screens */
+@media (max-width: 480px) {
+  main {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+  .card {
+    padding: 1rem;
+  }
+}
+/* ---------------------------------------------------------------
+   Mobile hamburger menu
+   --------------------------------------------------------------- */
+.nav-hamburger {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.nav-hamburger:hover { background: var(--accent-soft); border-color: var(--accent); }
+.nav-hamburger:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-hamburger svg { display: block; }
+
+/* Show/hide icon paths based on menu state */
+.nav-hamburger-close { display: none; }
+.site-header.nav-open .nav-hamburger-open  { display: none; }
+.site-header.nav-open .nav-hamburger-close { display: inline; }
+
+@media (max-width: 780px) {
+  /* Reorganise nav-wrap so brand + hamburger sit on one row, nav below */
+  .nav-wrap {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand hamburger"
+      "nav   nav";
+    gap: 0.5rem 0.75rem;
+    align-items: center;
+    flex-direction: unset !important;
+    padding-right: 1.25rem !important;
+  }
+  .brand         { grid-area: brand; }
+  .nav-hamburger { grid-area: hamburger; display: inline-flex; }
+  .nav-links {
+    grid-area: nav;
+    display: none;
+    width: 100%;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .site-header.nav-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  /* Header headshot competes with the hamburger for space — hide it on mobile.
+     The brand text still identifies the site. */
+  .header-headshot { display: none !important; }
+}
+/* Site version footer (About page) */
+.site-version {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 2.5rem auto 0.5rem;
+  padding: 0.5rem 1rem;
+  max-width: fit-content;
+  font-size: 0.75rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--panel-soft);
+  font-variant-numeric: tabular-nums;
+}
+.site-version-label {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+}
+.site-version-num {
+  color: var(--accent);
+  font-weight: 600;
+}
+.site-version-sep {
+  opacity: 0.5;
+}
+/* LinkedIn badge section */
+.linkedin-badge-section {
+  margin: 2.5rem 0;
+  width: 100%;
+}
+.linkedin-badge-section h2 {
+  margin-bottom: 1rem;
+}
+.linkedin-badge-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+/* Dark/high-contrast: LinkedIn's badge doesn't theme itself — override data-theme
+   dynamically would require re-init on prefs change; not worth it.
+   Instead, put a subtle themed frame around it so it doesn't clash. */
+[data-theme="dark"] .linkedin-badge-wrap,
+[data-contrast="high"] .linkedin-badge-wrap {
+  background: #ffffff;
+}
+/* About page Contact grid: two info cards + LinkedIn badge card */
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.55fr);
+  gap: 1rem;
+  align-items: stretch;
+  margin-top: 1.25rem;
+}
+
+/* Left column: Email and Location stacked, each taking equal height */
+.contact-stack {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+}
+.contact-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* LinkedIn card: centre badge horizontally, tighter bottom padding */
+.contact-card--linkedin {
+  padding: 1rem 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+.contact-card--linkedin h3 {
+  align-self: flex-start;
+  margin-bottom: 0;
+}
+.linkedin-badge-inline {
+  align-self: stretch !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.linkedin-badge-inline > .badge-base,
+.linkedin-badge-inline iframe {
+  margin: 0 auto !important;
+}
+
+/* Collapse to a single column on tablets and phones */
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-stack { grid-template-rows: auto auto; }
 }

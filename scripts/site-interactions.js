@@ -55,7 +55,64 @@
     initIncomingFlip();
     initScrollReveal();
     initScrollProgress();
+    initMobileNavDropdowns();
     window.addEventListener('pageshow', handlePageShow);
+  }
+
+  /* ---------------------------------------------------------------- */
+  /*  Mobile nav dropdowns: tap-to-open on touch devices              */
+  /*  First tap on parent opens the submenu; second tap navigates.    */
+  /*  Desktop hover/focus behaviour is unchanged.                     */
+  /* ---------------------------------------------------------------- */
+
+  function initMobileNavDropdowns() {
+    if (!window.matchMedia) return;
+    if (!window.matchMedia('(hover: none)').matches) return;
+
+    var dropdowns = document.querySelectorAll('.nav-dropdown');
+    if (!dropdowns.length) return;
+
+    forEach(dropdowns, function (dd) {
+      var link = dd.querySelector('.nav-dropdown-link');
+      if (!link) return;
+      link.setAttribute('aria-haspopup', 'true');
+      link.setAttribute('aria-expanded', 'false');
+      dd.setAttribute('data-open', 'false');
+    });
+
+    function closeAll(except) {
+      forEach(dropdowns, function (dd) {
+        if (dd === except) return;
+        dd.setAttribute('data-open', 'false');
+        var link = dd.querySelector('.nav-dropdown-link');
+        if (link) link.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    // Capture phase on document: runs before any bubble-phase listener
+    // on the link, on .nav-dropdown, or on document itself. This guarantees
+    // we can preventDefault before the page-leave handler sees the click.
+    document.addEventListener('click', function (e) {
+      if (!e.target || !e.target.closest) return;
+
+      var link = e.target.closest('.nav-dropdown-link');
+      if (link) {
+        var dd = link.closest('.nav-dropdown');
+        if (!dd) return;
+        if (dd.getAttribute('data-open') !== 'true') {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          closeAll(dd);
+          dd.setAttribute('data-open', 'true');
+          link.setAttribute('aria-expanded', 'true');
+        }
+        // Second tap on the same parent: do nothing here, let it navigate.
+        return;
+      }
+
+      // Tap outside any dropdown: close all open ones.
+      if (!e.target.closest('.nav-dropdown')) closeAll(null);
+    }, true); // <-- true = capture phase
   }
 
   /* ---------------------------------------------------------------- */

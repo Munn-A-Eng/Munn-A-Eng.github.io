@@ -8,69 +8,75 @@
   <link rel="stylesheet" href="assets/styles.css">
   <script>try{if(sessionStorage.getItem('headshotFlip'))document.documentElement.classList.add('flip-pending');}catch(e){}</script>
   <script>(function(){try{var p=JSON.parse(localStorage.getItem('portfolio-a11y-prefs')||'null');var h=document.documentElement;var d={theme:'light',contrast:'normal',textSize:'normal',motion:'auto'};if(p&&typeof p==='object'){for(var k in d){if(p[k])d[k]=p[k];}}h.setAttribute('data-theme',d.theme);h.setAttribute('data-contrast',d.contrast);h.setAttribute('data-text-size',d.textSize);h.setAttribute('data-motion',d.motion);}catch(e){}})();</script>
-  <script src="scripts/site-interactions.js?v=4" defer></script>
+  <script src="scripts/site-interactions.js?v=6" defer></script>
 </head>
 <body>
 	<!-- Site header -->
 <header class="site-header">
   <div class="nav-wrap">
-    <a class="brand" href="index.html">Adam Munn, BEng, EngTech (MIMechE)</a>
+    <a class="brand" href="index.html">Adam Munn, BEng, EngTech</a>
 
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <div class="nav-dropdown">
-        <a href="experience.html" class="nav-dropdown-link">
-          Experience <span class="nav-caret">▾</span>
-        </a>
-        <div class="nav-submenu">
+
+      <details class="nav-dropdown">
+        <summary class="nav-dropdown-summary">
+          Experience <span class="nav-caret" aria-hidden="true">▾</span>
+        </summary>
+        <div class="nav-dropdown-list">
+          <a href="experience.html">Experience overview</a>
           <a href="experience.html#engineering-experience">Engineering Experience</a>
           <a href="experience.html#additional-employment">Additional Employment</a>
           <a href="experience.html#qualifications">Qualifications and Certifications</a>
           <a href="experience.html#awards">Awards and Recognition</a>
         </div>
-      </div>
+      </details>
 
-      <div class="nav-dropdown">
-        <a href="cad.html" class="nav-dropdown-link">
-          CAD <span class="nav-caret">▾</span>
-        </a>
-        <div class="nav-submenu">
+      <details class="nav-dropdown">
+        <summary class="nav-dropdown-summary">
+          CAD <span class="nav-caret" aria-hidden="true">▾</span>
+        </summary>
+        <div class="nav-dropdown-list">
+          <a href="cad.html">CAD overview</a>
           <a href="cad.html#hevasure-aquila-2">Hevasure Aquila 2</a>
           <a href="cad.html#throttle-valve-assembly">Throttle Valve Assembly</a>
           <a href="cad.html#reverse-engineering-mould-design-cam">Reverse Engineering, Mould Design and CAM</a>
         </div>
-      </div>
+      </details>
 
-      <div class="nav-dropdown">
-        <a href="manufacturing-systems.html" class="nav-dropdown-link active">
-          Manufacturing <span class="nav-caret">▾</span>
-        </a>
-        <div class="nav-submenu">
+      <details class="nav-dropdown">
+        <summary class="nav-dropdown-summary">
+          Manufacturing <span class="nav-caret" aria-hidden="true">▾</span>
+        </summary>
+        <div class="nav-dropdown-list">
+          <a href="manufacturing-systems.html">Manufacturing overview</a>
           <a href="manufacturing-systems.html#hydraulic-disc-brake-caliper-digital-twin">Hydraulic Disc Brake Caliper Digital Twin</a>
           <a href="manufacturing-systems.html#axle-optimisation">Axle Optimisation</a>
           <a href="manufacturing-systems.html#ipv-vision-system-upgrades">IPV Vision-System Upgrades</a>
           <a href="manufacturing-systems.html#output-transfer-gear-line-optimisation">Output Transfer Gear Line Optimisation</a>
         </div>
-      </div>
+      </details>
 
-      <div class="nav-dropdown">
-        <a href="robotics-automation.html" class="nav-dropdown-link">
-          Robotics &amp; Automation <span class="nav-caret">▾</span>
-        </a>
-        <div class="nav-submenu">
+      <details class="nav-dropdown">
+        <summary class="nav-dropdown-summary">
+          Robotics &amp; Automation <span class="nav-caret" aria-hidden="true">▾</span>
+        </summary>
+        <div class="nav-dropdown-list">
+          <a href="robotics-automation.html">Robotics &amp; Automation overview</a>
           <a href="robotics-automation.html#industrial-cobot-vision-support">Industrial COBOT and Vision-System Support</a>
           <a href="robotics-automation.html#rrt-path-planning">RRT Path-Planning Simulation</a>
           <a href="robotics-automation.html#portfolio-website-development">Portfolio Website Development</a>
           <a href="robotics-automation.html#live-data-integration">Live Data Integration</a>
         </div>
-      </div>
+      </details>
 
-      <div class="nav-dropdown">
-        <a href="dissertation.html" class="nav-dropdown-link">
-          Dissertation <span class="nav-caret">▾</span>
-        </a>
-        <div class="nav-submenu">
+      <details class="nav-dropdown">
+        <summary class="nav-dropdown-summary">
+          Dissertation <span class="nav-caret" aria-hidden="true">▾</span>
+        </summary>
+        <div class="nav-dropdown-list">
+          <a href="dissertation.html">Dissertation overview</a>
           <a href="dissertation.html#project-overview">Project Overview</a>
           <a href="dissertation.html#abstract">Abstract</a>
           <a href="dissertation.html#research-approach">Research Approach</a>
@@ -79,7 +85,7 @@
           <a href="dissertation.html#submitted-poster">Submitted Poster</a>
           <a href="dissertation.html#supporting-documents">Supporting Documents</a>
         </div>
-      </div>
+      </details>
     </nav>
 
     <img
@@ -93,7 +99,7 @@
 	<!-- Contact Strip -->
   <div class="contact-strip">
     <span>Email: <a href="mailto:Adammunn71@gmail.com">Adammunn71@gmail.com</a></span>
-    <span>LinkedIn: <a href="https://www.linkedin.com/in/adammunnuop/" target="_blank" rel="noopener noreferrer">Adam Munn</a></span>
+    <span>LinkedIn: <a href="https://www.linkedin.com/in/adammunnuos/" target="_blank" rel="noopener noreferrer">Adam Munn</a></span>
     <button type="button" class="search-open contact-search" aria-label="Search this site (press Ctrl+K)">
       <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg>
       <span>Search</span>
@@ -324,5 +330,6 @@
   </footer>
   <script src="scripts/search.js" defer></script>
   <script src="scripts/accessibility.js" defer></script>
+  <script src="scripts/mobile-nav.js" defer></script>
 </body>
 </html>
