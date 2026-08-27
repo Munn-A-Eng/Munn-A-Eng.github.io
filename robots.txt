@@ -1,0 +1,8 @@
+# robots.txt for Adam Munn Engineering Portfolio
+# https://munn-a-eng.github.io/
+
+User-agent: *
+Allow: /
+
+# Direct crawlers to the sitemap
+Sitemap: https://munn-a-eng.github.io/sitemap.xml
