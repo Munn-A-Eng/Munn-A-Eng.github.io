@@ -87,6 +87,7 @@
           <a href="robotics-automation.html">Robotics &amp; Automation overview</a>
           <a href="robotics-automation.html#industrial-cobot-vision-support">Industrial COBOT and Vision-System Support</a>
           <a href="robotics-automation.html#rrt-path-planning">RRT Path-Planning Simulation</a>
+		  <a href="robotics-automation.html#plc-simulation">PLC Accumulation-Conveyor Simulator</a>
           <a href="robotics-automation.html#portfolio-website-development">Portfolio Website Development</a>
           <a href="robotics-automation.html#live-data-integration">Live Data Integration</a>
         </div>
@@ -372,6 +373,260 @@ plot(pthObj.States(:, 1), pthObj.States(:, 2), 'r-', 'LineWidth', 2)</code></pre
         <p id="rrt-status" class="rrt-status" aria-live="polite">iterations    0   nodes    1   status: idle</p>
       </article>
     </section>
+
+      <!-- PLC accumulation-conveyor simulator -->
+      <section id="plc-simulation" class="automation-project">
+        <h2>PLC Accumulation-Conveyor Simulator</h2>
+
+           <article class="card project-summary-card">
+          <p>
+            A three-station accumulation conveyor simulated in the browser
+            and controlled by a virtual PLC. The scan cycle, ladder logic,
+            timers, counters, sealing circuits, and station-to-station
+            handshakes are all implemented to standard PLC conventions.
+            Every 100&nbsp;ms the controller reads its simulated photoeye
+            inputs, solves the ladder, and writes motor outputs that move
+            the items on the HMI.
+          </p>
+          <p>
+            A separate item-tracking layer runs alongside the ladder. It
+            keeps hold of each item's identity and type as it moves between
+            stations, and it checks four runtime invariants every scan. If
+            any invariant fails, the PLC faults and the line stops. This is
+            how real conveyors catch sensor bounce, missing product, and
+            broken handshakes before they corrupt downstream processes.
+          </p>
+          <div class="tag-list">
+            <span class="tag">PLC</span>
+            <span class="tag">Ladder logic</span>
+            <span class="tag">Structured Text</span>
+            <span class="tag">Scan cycle</span>
+            <span class="tag">Sealing circuit</span>
+            <span class="tag">TON / CTU</span>
+            <span class="tag">Handshakes</span>
+            <span class="tag">Item tracking</span>
+            <span class="tag">Fault injection</span>
+            <span class="tag">Vanilla JS + SVG</span>
+          </div>
+        </article>
+
+                <article class="card plc-sim" aria-labelledby="plc-sim-title">
+          <div class="plc-sim__header">
+            <h3 id="plc-sim-title" class="plc-sim__title">Live simulation</h3>
+            <span class="plc-sim__status-wrap">
+              <span class="plc-sim__status-label">PLC status:</span>
+              <span class="plc-sim__status" data-plc-status>Loading…</span>
+            </span>
+          </div>
+
+          <!-- Plain-language activity strip -->
+          <div class="plc-sim__activity" data-plc-activity aria-live="polite">
+            Initialising…
+          </div>
+
+          <!-- HMI SVG -->
+          <svg
+            class="plc-sim__hmi"
+            viewBox="0 0 800 220"
+            preserveAspectRatio="xMidYMid meet"
+            role="img"
+            aria-label="Three-station accumulation conveyor. Items enter at the left, transit three stations separated by photoeyes, then exit or divert to a reject chute."
+            data-plc-hmi
+          >
+            <rect x="20" y="90" width="720" height="40" fill="var(--panel-soft)" stroke="var(--border)"/>
+
+            <rect class="plc-sim__zone-rect" data-plc-zone="0" x="60"  y="90" width="200" height="40"/>
+            <text x="160" y="150" text-anchor="middle">Station 1</text>
+            <text x="160" y="164" text-anchor="middle" fill="var(--muted)">%Q0.0 S1_Motor</text>
+
+            <rect class="plc-sim__zone-rect" data-plc-zone="1" x="270" y="90" width="200" height="40"/>
+            <text x="370" y="150" text-anchor="middle">Station 2</text>
+            <text x="370" y="164" text-anchor="middle" fill="var(--muted)">%Q0.1 S2_Motor</text>
+
+            <rect class="plc-sim__zone-rect" data-plc-zone="2" x="480" y="90" width="200" height="40"/>
+            <text x="580" y="150" text-anchor="middle">Station 3</text>
+            <text x="580" y="164" text-anchor="middle" fill="var(--muted)">%Q0.2 S3_Motor</text>
+
+            <line class="plc-sim__beam" data-plc-beam="0" x1="260" y1="70" x2="260" y2="150"/>
+            <line class="plc-sim__beam" data-plc-beam="1" x1="470" y1="70" x2="470" y2="150"/>
+            <line class="plc-sim__beam" data-plc-beam="2" x1="680" y1="70" x2="680" y2="150"/>
+            <text x="260" y="60" text-anchor="middle" fill="var(--muted)">%I1.0 S1_Photoeye</text>
+            <text x="470" y="60" text-anchor="middle" fill="var(--muted)">%I1.1 S2_Photoeye</text>
+            <text x="680" y="60" text-anchor="middle" fill="var(--muted)">%I1.2 S3_Photoeye</text>
+
+            <path class="plc-sim__reject-chute" d="M 680 130 L 720 180 L 780 180"/>
+            <text x="740" y="200" text-anchor="middle" fill="var(--muted)">Reject (type B)</text>
+            <text x="720" y="115" fill="var(--muted)">Accept →</text>
+
+            <circle class="plc-sim__lamp" data-plc-lamp="run"   cx="40" cy="40" r="8"/>
+            <text x="55" y="44">Run</text>
+            <circle class="plc-sim__lamp" data-plc-lamp="fault" cx="110" cy="40" r="8"/>
+            <text x="125" y="44">Fault</text>
+
+            <g data-plc-items></g>
+          </svg>
+
+          <!-- Guided tour — primary interaction -->
+          <div class="plc-sim__tour" role="group" aria-label="Guided demonstrations">
+            <span class="plc-sim__tour-label">Guided demo:</span>
+            <button type="button" class="button small" data-plc-tour="normal">Show normal running</button>
+            <button type="button" class="button small" data-plc-tour="backup">Show a backup</button>
+            <button type="button" class="button small" data-plc-tour="fault">Show a fault &amp; recovery</button>
+            <button type="button" class="button secondary small" data-plc-tour="reset">Reset demo</button>
+          </div>
+
+          <!-- Everything below is opt-in -->
+          <details class="plc-sim__section" open>
+            <summary>Operator controls &amp; manual fault injection</summary>
+            <div class="plc-sim__section-body">
+              <div class="plc-sim__controls" role="group" aria-label="Operator controls">
+                <button type="button" class="button small" data-plc-btn="start">Start</button>
+                <button type="button" class="button secondary small" data-plc-btn="stop">Stop</button>
+                <button type="button" class="button secondary small" data-plc-btn="estop" data-plc-estop-btn>E-Stop</button>
+                <button type="button" class="button secondary small" data-plc-btn="reset">Reset</button>
+              </div>
+
+              <div class="plc-sim__inject">
+                <div class="plc-sim__inject-row">
+                  <span class="plc-sim__inject-label">Remove item from:</span>
+                  <button type="button" class="button secondary small" data-plc-remove="0" disabled>Station 1</button>
+                  <button type="button" class="button secondary small" data-plc-remove="1" disabled>Station 2</button>
+                  <button type="button" class="button secondary small" data-plc-remove="2" disabled>Station 3</button>
+                </div>
+                <div class="plc-sim__inject-row">
+                  <span class="plc-sim__inject-label">Bounce photoeye:</span>
+                  <button type="button" class="button secondary small" data-plc-bounce="0">Station 1</button>
+                  <button type="button" class="button secondary small" data-plc-bounce="1">Station 2</button>
+                  <button type="button" class="button secondary small" data-plc-bounce="2">Station 3</button>
+                </div>
+                <div class="plc-sim__inject-row">
+                  <span class="plc-sim__inject-label">Break handshake:</span>
+                  <label class="plc-sim__inject-check">
+                    <input type="checkbox" data-plc-hs="Z1Z2"> S1 → S2
+                  </label>
+                  <label class="plc-sim__inject-check">
+                    <input type="checkbox" data-plc-hs="Z2Z3"> S2 → S3
+                  </label>
+                </div>
+                <div class="plc-sim__inject-row">
+                  <button type="button" class="button secondary small" data-plc-reconcile>Reconcile</button>
+                  <span class="plc-sim__inject-hint">Removing an item from a station provokes a tracking-vs-physical mismatch — the PLC will fault (code 22). Reconcile rebuilds ownership from the photoeyes; Reset then Start resumes.</span>
+                </div>
+              </div>
+
+              <div class="plc-sim__invariants" aria-label="Runtime invariant status">
+                <span class="plc-sim__inv-label">Runtime invariants:</span>
+                <span class="plc-sim__inv" data-plc-inv="no_dup_id">no_dup_id</span>
+                <span class="plc-sim__inv" data-plc-inv="count_conserved">count_conserved</span>
+                <span class="plc-sim__inv" data-plc-inv="pe_matches_owner">pe_matches_owner</span>
+                <span class="plc-sim__inv" data-plc-inv="zone_non_regressing">zone_non_regressing</span>
+              </div>
+            </div>
+          </details>
+
+          <details class="plc-sim__section">
+            <summary>PLC program: Ladder logic &amp; Structured Text</summary>
+            <div class="plc-sim__section-body">
+              <div class="plc-sim__program">
+                <div class="plc-sim__tabs" role="tablist">
+                  <button type="button" class="plc-sim__tab is-active" data-plc-tab="ladder" role="tab">Ladder</button>
+                  <button type="button" class="plc-sim__tab" data-plc-tab="st" role="tab">Structured Text</button>
+                </div>
+                <div class="plc-sim__panel is-active" data-plc-panel="ladder">
+                  <label class="plc-sim__ladder-expand">
+                    <input type="checkbox" data-plc-ladder-full>
+                    Show all 13 rungs (unabridged)
+                  </label>
+                  <svg class="plc-sim__ladder" data-plc-ladder viewBox="0 0 740 400"
+                       preserveAspectRatio="xMinYMin meet" role="img"
+                       aria-label="Ladder logic diagram with live power-flow highlighting each scan."></svg>
+                </div>
+                <div class="plc-sim__panel" data-plc-panel="st">
+<pre class="plc-sim__st"><code>(* IEC 61131-3 Structured Text — same logic as the ladder view *)
+
+(* R1: Safety enable — E-Stop clear AND Reset arms the system *)
+IF NOT EStop_NC THEN
+    Sys_Enabled := FALSE;
+    Sys_Running := FALSE;
+ELSIF Reset_PB THEN
+    Sys_Enabled := TRUE;
+END_IF;
+
+(* R2: Master sealing circuit — classic Start/Stop with seal-in *)
+IF Sys_Enabled AND (Start_PB OR Sys_Running)
+   AND Stop_PB_NC AND NOT Sys_Faulted THEN
+    Sys_Running := TRUE;
+ELSIF NOT Stop_PB_NC OR NOT Sys_Enabled OR Sys_Faulted THEN
+    Sys_Running := FALSE;
+END_IF;
+
+(* Downstream-ready evaluation *)
+S1_AcceptAck := (Station2_Owner = NULL) AND NOT S2_Backup AND NOT Break_HS_S1S2;
+S2_AcceptAck := (Station3_Owner = NULL) AND NOT S3_Backup AND NOT Break_HS_S2S3;
+S3_AcceptAck := Reject_Ready;
+
+(* R6-R8: Backup detection — item at photoeye, downstream not accepting, for PT=2s *)
+TON_S1_Backup(IN := S1_Photoeye AND NOT S1_AcceptAck, PT := T#2s);
+TON_S2_Backup(IN := S2_Photoeye AND NOT S2_AcceptAck, PT := T#2s);
+TON_S3_Backup(IN := S3_Photoeye AND NOT S3_AcceptAck, PT := T#2s);
+S1_Backup := TON_S1_Backup.Q;
+S2_Backup := TON_S2_Backup.Q;
+S3_Backup := TON_S3_Backup.Q;
+
+(* R3-R5: Station motor coils — run only if healthy and downstream ready *)
+S1_Motor := Sys_Running AND NOT Sys_Faulted AND S1_AcceptAck;
+S2_Motor := Sys_Running AND NOT Sys_Faulted AND S2_AcceptAck;
+S3_Motor := Sys_Running AND NOT Sys_Faulted AND S3_AcceptAck;
+
+(* R9-R11: Slip alarm — motor commanded but no encoder motion for PT=500ms *)
+TON_S1_Slip(IN := S1_Motor AND NOT S1_Enc_Pulse, PT := T#500ms);
+TON_S2_Slip(IN := S2_Motor AND NOT S2_Enc_Pulse, PT := T#500ms);
+TON_S3_Slip(IN := S3_Motor AND NOT S3_Enc_Pulse, PT := T#500ms);
+IF TON_S1_Slip.Q THEN Sys_Faulted := TRUE; Fault_Code := 11; END_IF;
+IF TON_S2_Slip.Q THEN Sys_Faulted := TRUE; Fault_Code := 12; END_IF;
+IF TON_S3_Slip.Q THEN Sys_Faulted := TRUE; Fault_Code := 13; END_IF;
+
+(* R12: Throughput counter *)
+CTU_Throughput(CU := S3_Photoeye_Falling AND (S3_Item.type = 'A'),
+               R  := Reset_PB, PV := 9999);
+
+(* R13: Reject actuator *)
+Reject_Actuator := S3_Photoeye AND (S3_Item.type = 'B') AND Reject_Ready;
+
+(* --- Runs alongside the ladder above --- *)
+(* Item-tracking FB maintains Station_Owner[1..3] and item metadata          *)
+(* (id, type, entry_scan) on photoeye edges. Runtime invariants (no dup IDs, *)
+(* count conserved, PE matches owner, zone non-regressing) trip Sys_Faulted  *)
+(* with a dedicated code so operators distinguish physical faults from       *)
+(* tracking desync requiring reconciliation.                                 *)
+</code></pre>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <details class="plc-sim__section">
+            <summary>Tag readout: Live %I / %Q / memory values</summary>
+            <div class="plc-sim__section-body">
+              <div class="plc-sim__tags" data-plc-tags></div>
+            </div>
+          </details>
+
+          <details class="plc-sim__section">
+            <summary>How this works: System behaviour</summary>
+            <div class="plc-sim__section-body plc-sim__method">
+              <div data-plc-method-behaviour>Loading…</div>
+            </div>
+          </details>
+
+          <details class="plc-sim__section">
+            <summary>How this works: Engineering concepts</summary>
+            <div class="plc-sim__section-body plc-sim__method">
+              <div data-plc-method-concepts>Loading…</div>
+            </div>
+          </details>
+        </article>
+      </section>
 
     <!-- Portfolio website development -->
     <section id="portfolio-website-development" class="automation-project">
@@ -755,9 +1010,12 @@ plot(pthObj.States(:, 1), pthObj.States(:, 2), 'r-', 'LineWidth', 2)</code></pre
     </div>
   </footer>
   <script src="scripts/rrt-demo.js" defer></script>
+  <script src="scripts/accessibility.js" defer></script>
   <script src="scripts/site-architecture.js" defer></script>
   <script src="scripts/carbon-dashboard.js" defer></script>
+  <script src="scripts/plc-simulator.js" defer></script>
   <script src="scripts/search.js" defer></script>
   <script src="scripts/mobile-nav.js" defer></script>
+  <script src="scripts/nav-hover.js" defer></script>
 </body>
 </html>

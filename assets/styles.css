@@ -2871,3 +2871,280 @@ body {
   white-space: nowrap;
   border: 0;
 }
+/* ============================================================
+   PLC accumulation-conveyor simulator — consolidated (Stage 3C)
+   ============================================================ */
+.plc-sim {
+  display: block;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+}
+
+.plc-sim__header {
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: 0.5rem 1rem; margin-bottom: 0.5rem;
+}
+.plc-sim__title { margin: 0; font-size: 1.05rem; }
+
+.plc-sim__status-wrap {
+  display: inline-flex; align-items: baseline; gap: 0.4rem;
+  font-size: 0.8rem;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+.plc-sim__status-label { color: var(--muted); font-family: inherit; }
+.plc-sim__status { color: var(--muted); font-variant-numeric: tabular-nums; }
+.plc-sim__status.is-run   { color: #2f7a4a; }
+.plc-sim__status.is-fault { color: #b04a3a; font-weight: 600; }
+
+/* Plain-language activity strip */
+.plc-sim__activity {
+  margin: 0.6rem 0 0.75rem;
+  padding: 0.55rem 0.75rem;
+  background: var(--panel-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.plc-sim__activity.is-warn  { border-left-color: #d4a017; }
+.plc-sim__activity.is-fault { border-left-color: #c0392b; }
+
+/* HMI */
+.plc-sim__hmi {
+  width: 100%; height: auto; display: block;
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+}
+.plc-sim__hmi text { font-family: inherit; font-size: 11px; fill: var(--text); }
+
+.plc-sim__zone-rect { fill: var(--panel); stroke: var(--border); stroke-width: 1; }
+.plc-sim__zone-rect.is-driven { fill: var(--accent-soft); }
+.plc-sim__zone-rect.is-backup { fill: #f7e4b8; }
+
+.plc-sim__beam { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; opacity: 0.7; }
+.plc-sim__beam.is-broken { stroke: #d4a017; stroke-width: 2; stroke-dasharray: none; opacity: 1; }
+
+.plc-sim__item { stroke: var(--text); stroke-width: 1; cursor: pointer; transition: stroke-width 0.1s, stroke 0.1s; }
+.plc-sim__item.type-A { fill: var(--accent); }
+.plc-sim__item.type-B { fill: #c46b3a; }
+.plc-sim__item.type-UNKNOWN { fill: #7a7a7a; }
+.plc-sim__item:hover { stroke: #b04a3a; stroke-width: 2.5; }
+
+.plc-sim__item-label { font-size: 11px; font-weight: 600; fill: #fff; text-anchor: middle; pointer-events: none; }
+
+.plc-sim__lamp { stroke: var(--border); stroke-width: 1; fill: var(--panel-soft); }
+.plc-sim__lamp.is-on-run   { fill: #4aa870; }
+.plc-sim__lamp.is-on-fault { fill: #d4534a; }
+
+.plc-sim__reject-chute { fill: none; stroke: var(--border); stroke-width: 1; stroke-dasharray: 4 3; }
+
+/* Guided tour */
+.plc-sim__tour {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 0.4rem 0.6rem; margin-top: 0.75rem;
+  padding: 0.5rem 0.6rem;
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+}
+.plc-sim__tour-label { color: var(--muted); font-size: 0.85rem; margin-right: 0.25rem; }
+
+/* Collapsible sections */
+.plc-sim__section {
+  margin-top: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+  background: var(--panel);
+}
+.plc-sim__section > summary {
+  padding: 0.55rem 0.75rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+  list-style: none;
+}
+.plc-sim__section > summary::-webkit-details-marker { display: none; }
+.plc-sim__section > summary::before {
+  content: '▸'; display: inline-block; width: 1em;
+  color: var(--muted); transition: transform 0.15s;
+}
+.plc-sim__section[open] > summary::before { transform: rotate(90deg); }
+.plc-sim__section > summary:hover { background: var(--panel-soft); }
+
+.plc-sim__section-body { padding: 0.75rem; border-top: 1px solid var(--border); }
+
+/* Operator controls */
+.plc-sim__controls { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.plc-sim__controls .button[data-plc-btn="estop"] { background: #c0392b; color: #fff; border-color: #a5321f; }
+.plc-sim__controls .button[data-plc-btn="estop"]:hover { background: #a5321f; }
+.plc-sim__controls .button[data-plc-estop-btn].is-tripped {
+  background: var(--panel-soft); color: #c0392b; border: 2px dashed #c0392b;
+}
+
+/* Fault-injection */
+.plc-sim__inject { margin-top: 0.75rem; }
+.plc-sim__inject-row {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 0.4rem 0.6rem; margin-top: 0.4rem; font-size: 0.82rem;
+}
+.plc-sim__inject-label { color: var(--muted); min-width: 9rem; }
+.plc-sim__inject-check { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--text); }
+.plc-sim__inject-hint { color: var(--muted); font-size: 0.78rem; font-style: italic; flex-basis: 100%; margin-top: 0.35rem; }
+.plc-sim__inject .button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Invariants */
+.plc-sim__invariants {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 0.35rem 0.6rem; margin-top: 0.75rem;
+  font-size: 0.78rem;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+.plc-sim__inv-label { color: var(--muted); }
+.plc-sim__inv {
+  padding: 0.15rem 0.5rem; border-radius: 0.25rem;
+  border: 1px solid var(--border); background: var(--panel-soft); color: var(--muted);
+}
+.plc-sim__inv.is-ok       { color: #2f7a4a; border-color: #b3d9c1; background: #eaf5ee; }
+.plc-sim__inv.is-violated { color: #b04a3a; border-color: #e6b8b0; background: #fbe9e5; font-weight: 600; }
+
+/* Program (ladder + ST) */
+.plc-sim__program { }
+.plc-sim__tabs { display: flex; gap: 0.25rem; border-bottom: 1px solid var(--border); }
+.plc-sim__tab {
+  background: transparent; border: 1px solid transparent; border-bottom: none;
+  padding: 0.4rem 0.85rem; font: inherit; font-size: 0.85rem;
+  color: var(--muted); cursor: pointer; border-radius: 0.35rem 0.35rem 0 0;
+  margin-bottom: -1px;
+}
+.plc-sim__tab:hover { color: var(--text); }
+.plc-sim__tab.is-active {
+  background: var(--panel-soft); border-color: var(--border); border-bottom-color: var(--panel-soft);
+  color: var(--text); font-weight: 600;
+}
+.plc-sim__panel {
+  display: none; padding: 0.75rem; background: var(--panel-soft);
+  border: 1px solid var(--border); border-top: none;
+  border-radius: 0 0 0.35rem 0.35rem; overflow: auto;
+}
+.plc-sim__panel.is-active { display: block; }
+
+.plc-sim__ladder-expand {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-size: 0.78rem; color: var(--muted); margin-bottom: 0.5rem;
+}
+
+.plc-sim__ladder {
+  width: 100%; min-width: 700px; height: auto; display: block;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+.plc-sim__ladder text { fill: var(--text); font-size: 10px; }
+.plc-sim__lad-rail  { stroke: var(--text);   stroke-width: 1.5; }
+.plc-sim__lad-wire  { stroke: var(--border); stroke-width: 1; fill: none; }
+.plc-sim__lad-bar   { stroke: var(--text);   stroke-width: 1.5; }
+.plc-sim__lad-slash { stroke: var(--text);   stroke-width: 1.5; }
+.plc-sim__lad-contact line, .plc-sim__lad-coil line, .plc-sim__lad-coil path { stroke: var(--text); stroke-width: 1; fill: none; }
+.plc-sim__lad-block  rect { fill: var(--panel); stroke: var(--text); stroke-width: 1; }
+.plc-sim__lad-block  line { stroke: var(--border); stroke-width: 1; }
+.plc-sim__lad-contact.is-live line,
+.plc-sim__lad-contact.is-live .plc-sim__lad-bar { stroke: #2f7a4a; }
+.plc-sim__lad-coil.is-live line,
+.plc-sim__lad-coil.is-live path { stroke: #2f7a4a; }
+.plc-sim__lad-block.is-live rect { stroke: #2f7a4a; fill: #eaf5ee; }
+..plc-sim__lad-anno {
+  font-size: 10px !important;
+  fill: var(--accent) !important;
+  font-style: normal;
+  font-weight: 600;
+}
+.plc-sim__lad-legend text { font-size: 10px; }
+.plc-sim__lad-legend { padding-bottom: 8px; }
+
+.plc-sim__st { margin: 0; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.78rem; color: var(--text); background: transparent; overflow: auto; }
+.plc-sim__st code { color: inherit; }
+
+/* Tag readout */
+.plc-sim__tags {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.15rem 0.75rem;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  color: var(--text);
+}
+.plc-sim__tag { display: flex; justify-content: space-between; padding: 0.1rem 0.35rem; border-bottom: 1px dotted var(--border); }
+.plc-sim__tag-name { color: var(--muted); }
+.plc-sim__tag-val  { font-variant-numeric: tabular-nums; }
+.plc-sim__tag-val.is-hi { color: #2f7a4a; font-weight: 600; }
+
+/* Methodology */
+.plc-sim__method { font-size: 0.9rem; color: var(--text); }
+.plc-sim__method h5 { margin: 0.75rem 0 0.25rem; font-size: 0.9rem; }
+.plc-sim__method p { margin: 0.35rem 0; }
+.plc-sim__method ol, .plc-sim__method ul { margin: 0.35rem 0 0.5rem 1.25rem; }
+.plc-sim__method code { font-size: 0.85em; background: var(--panel-soft); padding: 0.05rem 0.3rem; border-radius: 0.2rem; }
+
+/* Mobile */
+@media (max-width: 780px) {
+  .plc-sim__panel { overflow-x: auto; }
+  .plc-sim__inject-label { min-width: 0; width: 100%; }
+  .plc-sim__tour-label   { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plc-sim__item { transition: none !important; }
+}
+
+/* PLC — Stage 3C Part 3: narration overlay */
+.plc-sim__narration {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0.5rem 0 0.75rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 0.35rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  animation: plcNarrationIn 0.25s ease-out;
+}
+.plc-sim__narration.is-warn  { background: #d4a017; color: #241a00; }
+.plc-sim__narration.is-fault { background: #c0392b; color: #fff; }
+.plc-sim__narration-text { flex: 1; }
+.plc-sim__narration-dismiss {
+  background: transparent;
+  border: 1px solid currentColor;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.85rem;
+  line-height: 1;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.25rem;
+  font: inherit;
+}
+.plc-sim__narration-dismiss:hover { background: rgba(255,255,255,0.15); }
+
+@keyframes plcNarrationIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plc-sim__narration { animation: none; }
+}
+/* Selected Work grid: force 3 columns so 6 cards fill 2 clean rows */
+.grid.grid--selected-work {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 900px) {
+  .grid.grid--selected-work { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .grid.grid--selected-work { grid-template-columns: 1fr; }
+}

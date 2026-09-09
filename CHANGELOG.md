@@ -3,6 +3,25 @@
 All notable changes to this portfolio site are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
+
+## [v1.4.0] - 2026-09-01
+
+### Added
+- PLC accumulation-conveyor simulator on the Robotics and Automation page, section anchor `#plc-simulation`. Three-station SVG HMI, 100 ms scan cycle, live ladder logic and Structured Text views, tag readout, four runtime invariants, and a guided-tour engine with three scripted scenarios (normal running, downstream backup, fault and recovery).
+- New nav submenu entry for the PLC simulator on all seven page navs.
+- New Robotics and Automation card on the homepage Selected Work grid.
+- Two methodology sections on the PLC widget: a plain-language behaviour view and an engineering-concepts view covering scan cycle, seal-in circuit, TON/CTU, interlocks, item tracking, invariants, and reconciliation.
+
+### Changed
+- Homepage Selected Work prose tightened across all cards.
+- Robotics and Automation page project descriptions tightened for the PLC section.
+
+### Technical
+- New file `scripts/plc-simulator.js` (approx 900 lines, vanilla JS IIFE, no external dependencies).
+- CSS additions to `assets/styles.css` for the PLC widget, all tokens reused from existing theme variables.
+- Simulator uses two-layer state model (physical layer for ground truth, tracking layer for the PLC's belief) with runtime invariants that catch divergence.
+- Fault-injection API exposed on `window.__plc` for developer diagnostics.
+
 ## [v1.3.0] — 2026-08-28
 
 ### Added
